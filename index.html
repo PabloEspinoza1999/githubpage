@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>FreeFolio - Freelancer Portfolio Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="51">
+    <!-- Navbar Start -->
+    <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
+        <a href="index.html" class="navbar-brand ml-lg-3">
+            <h1 class="m-0 display-5"><span class="text-primary">My</span>Folio</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
+            <div class="navbar-nav m-auto py-0">
+                <a href="#home" class="nav-item nav-link active">Home</a>
+                <a href="#about" class="nav-item nav-link">About</a>
+                <a href="#qualification" class="nav-item nav-link">Quality</a>
+                <a href="#skill" class="nav-item nav-link">Skill</a>
+                <a href="#service" class="nav-item nav-link">Service</a>
+                <a href="#portfolio" class="nav-item nav-link">Portfolio</a>
+                <a href="#contact" class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="" class="btn btn-outline-primary d-none d-lg-block">Hire Me</a>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+    <!-- Video Modal Start -->
+    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>        
+                    <!-- 16:9 aspect ratio -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Video Modal End -->
+
+
+    <div class="container-fluid d-flex align-items-center mb-5 py-5" id="home" style="background-image: url('img/header.jpg');">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 px-5 pl-lg-0 pb-5 pb-lg-0">
+                    <img class="img-fluid w-100 rounded-circle shadow-sm" src="img/Acerca.jpeg" alt="">
+                </div>
+                <div class="col-lg-7 text-center text-lg-left">
+                    <h3 class="text-white font-weight-normal mb-3">I'm</h3>
+                    <h1 class="display-3 text-uppercase text-primary mb-2" style="-webkit-text-stroke: 2px #ffffff;">Pablo Espinoza</h1>
+                    <h1 class="typed-text-output d-inline font-weight-lighter text-white"></h1>
+                    <div class="typed-text d-none">Web Developer, Front End Developer, Apps Designer, Apps Developer</div>
+                    <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
+                        <a href="Cv/CV_SOFTWARE_DEVELOPER_NET_TI_JOB.pdf" class="btn btn-outline-light mr-5">Download CV</a>
+                        <p style="color: #ffffff;">
+                            E-mail:
+                            <span id="email" style="cursor: pointer;" onclick="copyEmail()">
+                                <i class="fas fa-copy" style="margin-right: 5px;"></i>
+                                espinozapablo1999@gmail.com
+                            </span>
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- About Start -->
+    <div class="container-fluid py-5" id="about">
+        <div class="container">
+            <div class="position-relative d-flex align-items-center justify-content-center">
+                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">About</h1>
+                <h1 class="position-absolute text-uppercase text-primary">About Me</h1>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-5 pb-4 pb-lg-0">
+                    <img class="img-fluid rounded w-100" src="img/Perfil.jpeg" alt="">
+                </div>
+                <div class="col-lg-7">
+                    <h3 class="mb-4">Software Developer</h3>
+                    <p>I am a passionate
+                        programmer with experience
+                        in web design and development.
+                        I consider myself a responsible,
+                        persevering, committed person and always
+                        seeking excellence in everything
+                        I do.</p>
+                    <div class="row mb-3">
+                        <div class="col-sm-6 py-2"><h6>Name: <span class="text-secondary">Pablo Espinoza</span></h6></div>
+                        <div class="col-sm-6 py-2"><h6>Degree: <span class="text-secondary">Diploma in Information Technology Engineering </span></h6></div>
+                        <div class="col-sm-6 py-2"><h6>Phone: <span class="text-secondary">+506 61259159</span></h6></div>
+                        <div class="col-sm-6 py-2"><h6>Email: <span class="text-secondary">espinozapablo1999@gmail.com</span></h6></div>
+                        <div class="col-sm-6 py-2"><h6>Address: <span class="text-secondary">Guanacaste,Costa Rica</span></h6></div>
+                        <div class="col-sm-6 py-2"><h6>Freelance: <span class="text-secondary">Available</span></h6></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Qualification Start -->
+    <div class="container-fluid py-5" id="qualification">
+        <div class="container">
+            <div class="position-relative d-flex align-items-center justify-content-center">
+                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Quality</h1>
+                <h1 class="position-absolute text-uppercase text-primary">Education & Expericence</h1>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h3 class="mb-4">My Education</h3>
+                    <div class="border-left border-primary pt-2 pl-4 ml-2">
+                        <div class="position-relative mb-4">
+                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
+                            <h5 class="font-weight-bold mb-1">Bachelor of Engineering in Information Technology (97%)</h5>
+                            <p class="mb-2"><strong>Technical University of Costa Rica UTN</strong> | <small>2023 - 2024</small></p>
+                            <p>Full Stack Software Development, Web Design and Development, Application Architecture, Advanced Database Administration, Technical Support, Computer Network Architecture</p>
+                        </div>
+                        <div class="position-relative mb-4">
+                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
+                            <h5 class="font-weight-bold mb-1">Diploma in information technology engineering</h5>
+                            <p class="mb-2"><strong>Technical University of Costa Rica UTN</strong> | <small>2020 - 2023</small></p>
+                            <p>Software development, Web page design, Databases, Technical support, Computer networks</p>
+                        </div>
+                        <div class="position-relative mb-4">
+                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
+                            <h5 class="font-weight-bold mb-1">Web development with .NET</h5>
+                            <p class="mb-2"><strong>Train for employment</strong> | <small>2020 - 2021</small></p>
+                            <p>Design patterns, web resources, MVC, API consumption, Migrations. C# ASP.NET CORE and  Desktop .NET Fromework</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="mb-4">My Expericence</h3>
+                    <div class="border-left border-primary pt-2 pl-4 ml-2">
+                        <div class="position-relative mb-4">
+                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
+                            <h5 class="font-weight-bold mb-1">Software Developer</h5>
+                            <p class="mb-2"><strong>COCOCO Company</strong>  </p>
+                            <p>
+                                <ul>
+                                    <li>Reconstruction and updating of .NET management systems for support, ecommerce, and billing areas.</li>
+                                    <li>Design and data presentation, creation of views and front-end components using Razor, Vue.js, AJAX, and jQuery.</li>
+                                    <li>Design and adaptation of responsive interfaces using Bootstrap 5, HTML, and CSS.</li>
+                                    <li>Implementation and management of databases with Entity Framework (EF) and optimized queries using LinQ in SQL Server.</li>
+                                    <li>Development of Web APIs based on HTTP operations (GET, POST, PUT, DELETE) according to client requirements.</li>
+                                    <li>Application of design patterns such as MVC and Repository, and N-layer architecture.</li>
+                                    <li>Management of dependency injections, authentication, and authorization in web projects.</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Qualification End -->
+
+
+    <!-- Skill Start -->
+    <div class="container-fluid py-5" id="skill">
+        <div class="container">
+            <div class="position-relative d-flex align-items-center justify-content-center">
+                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Skills</h1>
+                <h1 class="position-absolute text-uppercase text-primary">My Skills</h1>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold">HTML | CSS | BOOSTRAPS
+                                <img src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/172202717/original/5462529338d0af5cb9d049ba7f6c38dec1b419b6/develop-frontpage-using-html-css-bootstrap.png" width="50px" height="30px" alt="" srcset="">
+                            </h6>
+                            <h6 class="font-weight-bold">95%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar " style="background-color: var(--orange);" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold">JavaScript
+                                <img src="https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png" width="40px" height="40px" alt="" srcset="">
+
+                            </h6>
+                            <h6 class="font-weight-bold">85%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold">Java
+                                <img src="https://brandslogos.com/wp-content/uploads/images/large/java-logo-1.png" width="40px" height="40px" alt="" srcset="">
+
+                            </h6>
+                            <h6 class="font-weight-bold">80%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="background-color: var(--red);" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold">SQL Server
+                                <img src="https://img.icons8.com/?size=512&id=laYYF3dV0Iew&format=png" width="40px" height="40px" alt="" srcset="">
+
+                            </h6>
+                            <h6 class="font-weight-bold">85%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-dark "  role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold">C# ASP.NET CORE 
+                                <img src="https://logos-world.net/wp-content/uploads/2022/01/NET-Framework-Logo-2010.png" width="60px" height="40px" alt="" srcset="">
+
+                            </h6>
+                            <h6 class="font-weight-bold">95%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar "  style="background-color: var(--cyan);" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between"> 
+                            <h6 class="font-weight-bold">.NET Framework
+                                <img src="https://logos-world.net/wp-content/uploads/2022/01/NET-Framework-Symbol.png" width="60px" height="35px" alt="" srcset="">
+
+                            </h6>
+                            <h6 class="font-weight-bold">80%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar " style="background-color: var(--purple);"  role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold">React JS & Node 
+                                <img src="https://image.pngaaa.com/721/4547721-middle.png" width="70px" height="30px" alt="" srcset="">
+
+                            </h6>
+                            <h6 class="font-weight-bold">75%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold">PHP Laravel
+                                <img src="https://static-00.iconduck.com/assets.00/laravel-icon-497x512-uwybstke.png" width="30px" height="30px" alt="" srcset="">
+
+                            </h6>
+                            <h6 class="font-weight-bold">85%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar " style="background-color: var(--red);"  role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold">Python Django
+                                <img src="https://goldeneagle.ai/static/images/technology/django.png" width="30px" height="30px" alt="" srcset="">
+                            </h6>
+                            <h6 class="font-weight-bold">70%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Skill End -->
+
+
+    <!-- Services Start -->
+    <div class="container-fluid pt-5" id="service">
+        <div class="container">
+            <div class="position-relative d-flex align-items-center justify-content-center">
+                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Service</h1>
+                <h1 class="position-absolute text-uppercase text-primary">My Services</h1>
+            </div>
+            <div class="row pb-3">
+                <div class="col-lg-4 col-md-6 text-center mb-5">
+                    <div class="d-flex align-items-center justify-content-center mb-4">
+                        <i class="fa fa-2x fa-laptop service-icon bg-primary text-white mr-3"></i>
+                        <h4 class="font-weight-bold m-0">Web Design</h4>
+                    </div>
+                    <p>I create attractive and functional visual experiences, optimized for different devices, with a focus on usability and responsive design.</p>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center mb-5">
+                    <div class="d-flex align-items-center justify-content-center mb-4">
+                        <i class="fa fa-2x fa-laptop-code service-icon bg-primary text-white mr-3"></i>
+                        <h4 class="font-weight-bold m-0">Web Development</h4>
+                    </div>
+                    <p>I develop custom software solutions, ensuring quality, scalability and performance through modern coding practices</p>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center mb-5">
+                    <div class="d-flex align-items-center justify-content-center mb-4">
+                        <i class="fab fa-2x fa-android service-icon bg-primary text-white mr-3"></i>
+                        <h4 class="font-weight-bold m-0">Apps Design</h4>
+                    </div>
+                    <p>Design and development of intuitive and high-performance mobile applications, focused on improving the user experience and meeting business objectives.</p>
+                </div>
+              
+               
+            </div>
+        </div>
+    </div>
+    <!-- Services End -->
+
+
+    <!-- Portfolio Start -->
+    <div class="container-fluid pt-5 pb-3" id="portfolio">
+        <div class="container">
+            <div class="position-relative d-flex align-items-center justify-content-center">
+                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Gallery</h1>
+                <h1 class="position-absolute text-uppercase text-primary">My Portfolio</h1>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center mb-2">
+                    <ul class="list-inline mb-4" id="portfolio-flters">
+                        <li class="btn btn-sm btn-outline-primary m-1 active"  data-filter="*">All</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".first">Design</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".second">Development</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".third">Marketing</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row portfolio-container">
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid rounded w-100" src="img/Front1/Init.png" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                            <a href="img/Front1/F7.png" data-lightbox="portfolio">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                            <a href="img/Front1/F.png" data-lightbox="portfolio"></a>
+
+                            <a href="img/Front1/F1.png" data-lightbox="portfolio"></a>
+
+                            <a href="img/Front1/F5.png" data-lightbox="portfolio"></a>
+                            <a href="img/Front1/F6.png" data-lightbox="portfolio"></a>
+
+                            <a href="img/Front1/F2.png" data-lightbox="portfolio"></a>
+                            </a>
+                            <a href="img/Front1/F3.png" data-lightbox="portfolio"></a>
+                            <a href="img/Front1/F4.png" data-lightbox="portfolio"></a>
+                        </a>
+                        </div>
+                    </div>
+                    <span class="btn btn-sm btn-outline-primary m-1"> <strong>HTML5</strong>, Boostraps 5, CSS , JavaScript</span>
+                    <a class="btn btn-sm btn-outline-primary m-1 active">Requests</a>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid rounded w-100" src="img/php/Init.png" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                            <a href="img/php/F1.png" data-lightbox="portfolio">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                            <a href="img/php/F2.png" data-lightbox="portfolio">
+                            </a>
+                            <a href="img/php/F3.png" data-lightbox="portfolio">
+                            </a>
+                        </div>
+                    </div>
+                   <span class="btn btn-sm btn-outline-primary m-1"> <strong>PHP</strong>, Ajax JavaScript, MySql</span>
+                   <a class="btn btn-sm btn-outline-primary m-1 active">Go to Git</a>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid rounded w-100" src="img/NET3/init.png" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                            <a href="img/NET3/init.png" data-lightbox="portfolio">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                            <a href="img/NET3/F1.png" data-lightbox="portfolio">
+                            </a>
+                            <a href="img/NET3/F2.png" data-lightbox="portfolio">
+                            </a>
+                        </div>
+                    </div>
+                    <span class="btn btn-sm btn-outline-primary m-1"> <strong>C#</strong>, ASP.NET CORE, NOSQL Cassandra </span>
+                    <a class="btn btn-sm btn-outline-primary m-1 active">Go to Git</a>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid rounded w-100" src="img/NET2/F1.png" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                        
+                            <a href="img/NET2/F2.png" data-lightbox="portfolio">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                            <a href="img/NET2/F4.png" data-lightbox="portfolio">
+                            </a>
+                            <a href="img/NET2/F3.png" data-lightbox="portfolio">
+                            </a>
+                            <a href="img/NET2/F1.png" data-lightbox="portfolio">
+                            </a>
+                        </div>
+                    </div>
+                    <span class="btn btn-sm btn-outline-primary m-1"> <strong>C#</strong>, ASP.NET CORE, JavaScript, SQL Server</span>
+                    <a class="btn btn-sm btn-outline-primary m-1 active">Go to Git</a>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid rounded w-100" src="img/NET/F1.png" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                        
+                            <a href="img/NET/F1.png" data-lightbox="portfolio">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                            <a href="img/NET/F2.png" data-lightbox="portfolio">
+                            </a>
+                            <a href="img/NET/F3.png" data-lightbox="portfolio">
+                            </a>
+                        </div>
+                    </div>
+                    <span class="btn btn-sm btn-outline-primary m-1"> <strong>C#</strong>, ASP.NET CORE,JavaScript, SQL Server</span>
+                    <a class="btn btn-sm btn-outline-primary m-1 active">Go to Git</a>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid rounded w-100" src="img/portfolio-3.jpg" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                            <a href="img/portfolio-3.jpg" data-lightbox="portfolio">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid rounded w-100" src="img/portfolio-4.jpg" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                            <a href="img/portfolio-4.jpg" data-lightbox="portfolio">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid rounded w-100" src="img/PythonGalery/init.png" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                            <a href="img/PythonGalery/F.png" data-lightbox="portfolio">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                            <a href="img/PythonGalery/F2.png" data-lightbox="portfolio"></a>
+                            </a>
+                            
+                           <a href="img/PythonGalery/F5.png" data-lightbox="portfolio"></a>
+                        </a>
+                        </div>
+                    </div>
+                    <span class="btn btn-sm btn-outline-primary m-1"> <strong>Python</strong>Django, JavaScript</span>
+                    <a class="btn btn-sm btn-outline-primary m-1 active">Go to Git</a>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid rounded w-100" src="img/portfolio-6.jpg" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                            <a href="img/portfolio-6.jpg" data-lightbox="portfolio">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio End -->
+
+
+    <!-- Contact Start -->
+
+    <div class="container-fluid py-5" id="contact">
+        <div class="container">
+            <div class="position-relative d-flex align-items-center justify-content-center">
+                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Contact</h1>
+                <h1 class="position-absolute text-uppercase text-primary">Contact Me</h1>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-md-10 text-center">
+                                <div class="d-flex justify-content-around">
+                                    <a class="btn btn-sm btn-outline-primary m-1" href="https://github.com/PabloEspinoza1999/" target="_blank" style="text-decoration: none; color: inherit;">
+                                        <i class="fab fa-github"></i> GitHub
+                                    </a>
+                                    <a class="btn btn-sm btn-outline-primary m-1" href="https://linkedin.com/in/pablo-espinoza-rugama-6a223b20b" target="_blank" style="text-decoration: none; color: inherit;">
+                                        <i class="fab fa-linkedin"></i> LinkedIn
+                                    </a>
+                                    <a class="btn btn-sm btn-outline-primary m-1" href="mailto:espinozapablo1999@gmail.com" style="text-decoration: none; color: inherit;">
+                                        <i class="fas fa-envelope"></i> E-mail
+                                    </a>
+                                    <a class="btn btn-sm btn-outline-primary m-1" href="https://wa.me/50661259169" style="text-decoration: none; color: inherit;">
+                                        <i class="fas fa-phone"></i> WhatsApp
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-primary text-white mt-5 py-5 px-sm-3 px-md-5">
+        <div class="container text-center py-5">
+
+            <div class="d-flex justify-content-center mb-3">
+                <a class="text-white" href="#">Privacy</a>
+                <span class="px-3">|</span>
+                <a class="text-white" href="#">Terms</a>
+                <span class="px-3">|</span>
+                <a class="text-white" href="#">FAQs</a>
+                <span class="px-3">|</span>
+                <a class="text-white" href="#">Help</a>
+            </div>
+            
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Scroll to Bottom -->
+    <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></i>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-outline-dark px-0 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/typed/typed.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
+
+
+
+<script>
+    function copyEmail() {
+        const emailText = document.getElementById("email").innerText;
+        navigator.clipboard.writeText(emailText).then(() => {
+            alert("The email had been copied: " + emailText);
+        }).catch(err => {
+            console.error("Exeption: ", err);
+        });
+    }
+</script>
