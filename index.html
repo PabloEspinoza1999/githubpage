@@ -1,1093 +1,720 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Pablo Espinoza — Software Engineer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <style>
-    :root {
-      --bg:       #080c10;
-      --surface:  #0f1419;
-      --card:     #131a22;
-      --border:   #1e2a35;
-      --accent:   #00d4ff;
-      --accent2:  #7b5ea7;
-      --green:    #00e5a0;
-      --text:     #e8edf2;
-      --muted:    #6b7f8f;
-      --heading:  #ffffff;
-    }
+    <meta charset="utf-8">
+    <title>MyFolio</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet"> 
 
-    html { scroll-behavior: smooth; }
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
-    body {
-      font-family: 'Syne', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-    }
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    /* ─── NOISE OVERLAY ─── */
-    body::before {
-      content: '';
-      position: fixed; inset: 0; z-index: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-      pointer-events: none;
-    }
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
 
-    /* ─── NAV ─── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.2rem 4rem;
-      background: rgba(8,12,16,0.85);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-logo {
-      font-family: 'Space Mono', monospace;
-      font-size: 1.1rem;
-      color: var(--accent);
-      text-decoration: none;
-      letter-spacing: -0.5px;
-    }
-    .nav-logo span { color: var(--heading); }
-
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--accent); }
-
-    .nav-cta {
-      background: transparent;
-      border: 1.5px solid var(--accent);
-      color: var(--accent);
-      padding: 0.55rem 1.4rem;
-      border-radius: 4px;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.78rem;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s, color 0.2s;
-    }
-    .nav-cta:hover { background: var(--accent); color: var(--bg); }
-
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); transition: 0.3s; }
-
-    /* ─── HERO ─── */
-    #home {
-      min-height: 100vh;
-      display: flex; align-items: center;
-      padding: 8rem 4rem 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-grid {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(to right, rgba(0,212,255,0.04) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0,212,255,0.04) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-    .hero-glow {
-      position: absolute;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(0,212,255,0.08) 0%, transparent 70%);
-      top: -100px; right: -100px;
-      pointer-events: none;
-    }
-    .hero-glow2 {
-      position: absolute;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(123,94,167,0.1) 0%, transparent 70%);
-      bottom: 0; left: 10%;
-      pointer-events: none;
-    }
-
-    .hero-content { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; width: 100%; }
-
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(0,212,255,0.07);
-      border: 1px solid rgba(0,212,255,0.2);
-      color: var(--accent);
-      padding: 0.35rem 0.9rem;
-      border-radius: 100px;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.73rem;
-      letter-spacing: 0.08em;
-      margin-bottom: 2rem;
-      animation: fadeUp 0.6s ease both;
-    }
-    .hero-tag::before {
-      content: '';
-      width: 6px; height: 6px;
-      background: var(--green);
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
-    @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
-
-    .hero-name {
-      font-size: clamp(3rem, 8vw, 7rem);
-      font-weight: 800;
-      line-height: 1;
-      letter-spacing: -0.03em;
-      color: var(--heading);
-      animation: fadeUp 0.6s 0.1s ease both;
-      margin-bottom: 0.3rem;
-    }
-    .hero-name .accent { color: var(--accent); }
-
-    .hero-role {
-      font-family: 'Space Mono', monospace;
-      font-size: clamp(0.9rem, 2vw, 1.1rem);
-      color: var(--muted);
-      margin-bottom: 1.8rem;
-      animation: fadeUp 0.6s 0.2s ease both;
-    }
-    .hero-role .typed-cursor { color: var(--accent); }
-
-    .hero-desc {
-      max-width: 520px;
-      font-size: 1.05rem;
-      color: var(--muted);
-      line-height: 1.75;
-      margin-bottom: 2.5rem;
-      animation: fadeUp 0.6s 0.3s ease both;
-    }
-
-    .hero-actions {
-      display: flex; gap: 1rem; flex-wrap: wrap;
-      animation: fadeUp 0.6s 0.4s ease both;
-    }
-
-    .btn-primary-custom {
-      background: var(--accent);
-      color: var(--bg);
-      padding: 0.85rem 2rem;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 0.88rem;
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: inline-flex; align-items: center; gap: 0.5rem;
-    }
-    .btn-primary-custom:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,212,255,0.25); }
-
-    .btn-ghost {
-      background: transparent;
-      border: 1.5px solid var(--border);
-      color: var(--text);
-      padding: 0.85rem 2rem;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 0.88rem;
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      transition: border-color 0.2s, color 0.2s;
-      display: inline-flex; align-items: center; gap: 0.5rem;
-    }
-    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
-
-    .hero-stats {
-      display: flex; gap: 3rem; margin-top: 4rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-      animation: fadeUp 0.6s 0.5s ease both;
-      flex-wrap: wrap;
-    }
-    .stat-num {
-      font-size: 2rem; font-weight: 800;
-      color: var(--heading);
-      font-family: 'Space Mono', monospace;
-    }
-    .stat-num span { color: var(--accent); }
-    .stat-label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.2rem; }
-
-    /* ─── SECTION WRAPPER ─── */
-    section {
-      padding: 7rem 4rem;
-      position: relative;
-    }
-    .container { max-width: 1200px; margin: 0 auto; width: 100%; }
-
-    .section-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--accent);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-    }
-    .section-title {
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 800;
-      color: var(--heading);
-      letter-spacing: -0.02em;
-      margin-bottom: 1rem;
-    }
-    .section-line {
-      width: 50px; height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      border-radius: 2px;
-      margin-bottom: 3rem;
-    }
-
-    /* ─── ABOUT ─── */
-    #about { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-
-    .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start; }
-
-    .about-image-wrap {
-      position: relative;
-    }
-    .about-image-wrap img {
-      width: 100%;
-      border-radius: 12px;
-      filter: grayscale(20%) contrast(1.05);
-      display: block;
-    }
-    .about-image-frame {
-      position: absolute;
-      inset: -12px 12px 12px -12px;
-      border: 2px solid var(--accent);
-      border-radius: 14px;
-      z-index: -1;
-      opacity: 0.3;
-    }
-
-    .about-info { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0; }
-    .info-item label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
-    .info-item p { font-weight: 600; color: var(--text); font-size: 0.9rem; margin-top: 0.2rem; }
-
-    .badge-available {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      background: rgba(0,229,160,0.1);
-      border: 1px solid rgba(0,229,160,0.3);
-      color: var(--green);
-      padding: 0.3rem 0.8rem;
-      border-radius: 100px;
-      font-size: 0.78rem;
-      font-weight: 600;
-    }
-    .badge-available::before {
-      content:''; width:6px; height:6px; background: var(--green); border-radius:50%;
-      animation: pulse 2s infinite;
-    }
-
-    /* ─── SKILLS ─── */
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; }
-
-    .skill-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.4rem;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .skill-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-
-    .skill-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; }
-    .skill-name { font-weight: 700; font-size: 0.9rem; color: var(--heading); }
-    .skill-pct {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.8rem;
-      color: var(--accent);
-    }
-
-    .skill-bar {
-      height: 4px;
-      background: var(--border);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .skill-fill {
-      height: 100%;
-      border-radius: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      width: 0;
-      transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
-    }
-
-    .skill-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.8rem; }
-    .tag {
-      font-size: 0.68rem;
-      color: var(--muted);
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      font-family: 'Space Mono', monospace;
-    }
-
-    /* ─── EXPERIENCE TIMELINE ─── */
-    #qualification { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-
-    .timeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-
-    .timeline { position: relative; padding-left: 1.5rem; }
-    .timeline::before {
-      content: '';
-      position: absolute; left: 0; top: 0; bottom: 0;
-      width: 1px;
-      background: linear-gradient(to bottom, var(--accent), transparent);
-    }
-
-    .tl-item { position: relative; margin-bottom: 2.5rem; }
-    .tl-dot {
-      position: absolute; left: -1.93rem; top: 0.35rem;
-      width: 10px; height: 10px;
-      border: 2px solid var(--accent);
-      border-radius: 50%;
-      background: var(--bg);
-    }
-
-    .tl-date {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.7rem;
-      color: var(--accent);
-      letter-spacing: 0.08em;
-      margin-bottom: 0.4rem;
-    }
-    .tl-title { font-size: 1rem; font-weight: 700; color: var(--heading); margin-bottom: 0.2rem; }
-    .tl-org { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.6rem; }
-    .tl-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
-    .tl-desc li { margin-bottom: 0.3rem; }
-
-    /* ─── SERVICES ─── */
-    .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
-
-    .service-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2rem;
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.3s, transform 0.3s;
-      cursor: default;
-    }
-    .service-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      transform: scaleX(0);
-      transition: transform 0.3s;
-      transform-origin: left;
-    }
-    .service-card:hover { border-color: rgba(0,212,255,0.3); transform: translateY(-4px); }
-    .service-card:hover::before { transform: scaleX(1); }
-
-    .service-icon {
-      width: 48px; height: 48px;
-      background: rgba(0,212,255,0.08);
-      border: 1px solid rgba(0,212,255,0.2);
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem;
-      color: var(--accent);
-      margin-bottom: 1.2rem;
-    }
-    .service-title { font-size: 1.05rem; font-weight: 700; color: var(--heading); margin-bottom: 0.6rem; }
-    .service-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
-
-    /* ─── PORTFOLIO ─── */
-    .portfolio-filters { display: flex; gap: 0.6rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
-    .filter-btn {
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      padding: 0.45rem 1rem;
-      border-radius: 100px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: 'Space Mono', monospace;
-    }
-    .filter-btn.active, .filter-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,212,255,0.05); }
-
-    .portfolio-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
-
-    .project-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: transform 0.3s, border-color 0.3s;
-    }
-    .project-card:hover { transform: translateY(-4px); border-color: rgba(0,212,255,0.3); }
-
-    .project-thumb {
-      position: relative; overflow: hidden;
-      height: 180px;
-      background: linear-gradient(135deg, #0a1628, #0e1f35);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .project-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
-    .project-card:hover .project-thumb img { transform: scale(1.05); }
-    .project-thumb-overlay {
-      position: absolute; inset: 0;
-      background: rgba(0,212,255,0.05);
-    }
-    .project-placeholder {
-      font-size: 3rem; color: var(--border);
-    }
-
-    .project-body { padding: 1.4rem; }
-    .project-tech {
-      display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.8rem;
-    }
-    .tech-badge {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.62rem;
-      color: var(--accent);
-      background: rgba(0,212,255,0.08);
-      border: 1px solid rgba(0,212,255,0.2);
-      padding: 0.15rem 0.5rem;
-      border-radius: 4px;
-    }
-
-    .project-title { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.5rem; }
-    .project-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.55; margin-bottom: 1rem; }
-
-    .project-links { display: flex; gap: 0.7rem; }
-    .proj-link {
-      font-size: 0.75rem;
-      color: var(--muted);
-      text-decoration: none;
-      display: flex; align-items: center; gap: 0.3rem;
-      transition: color 0.2s;
-    }
-    .proj-link:hover { color: var(--accent); }
-
-    /* ─── CONTACT ─── */
-    #contact { background: var(--surface); border-top: 1px solid var(--border); }
-
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-
-    .contact-links { display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem; }
-    .contact-item {
-      display: flex; align-items: center; gap: 1rem;
-      padding: 1rem 1.2rem;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      text-decoration: none;
-      color: var(--text);
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .contact-item:hover { border-color: var(--accent); transform: translateX(4px); }
-    .contact-item-icon {
-      width: 40px; height: 40px;
-      background: rgba(0,212,255,0.08);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
-      color: var(--accent);
-      flex-shrink: 0;
-    }
-    .contact-item-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
-    .contact-item-val { font-size: 0.88rem; font-weight: 600; color: var(--heading); }
-
-    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .field { display: flex; flex-direction: column; gap: 0.4rem; }
-    .field label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
-    .field input, .field textarea {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.75rem 1rem;
-      color: var(--text);
-      font-family: 'Syne', sans-serif;
-      font-size: 0.88rem;
-      transition: border-color 0.2s;
-      outline: none;
-    }
-    .field input:focus, .field textarea:focus { border-color: var(--accent); }
-    .field textarea { resize: vertical; min-height: 120px; }
-
-    .submit-btn {
-      background: var(--accent);
-      color: var(--bg);
-      border: none;
-      padding: 0.9rem 2rem;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 0.88rem;
-      cursor: pointer;
-      font-family: 'Syne', sans-serif;
-      align-self: flex-start;
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: flex; align-items: center; gap: 0.5rem;
-    }
-    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,212,255,0.25); }
-
-    /* ─── FOOTER ─── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 4rem;
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 1rem;
-    }
-    .footer-copy { font-size: 0.78rem; color: var(--muted); font-family: 'Space Mono', monospace; }
-    .footer-socials { display: flex; gap: 0.8rem; }
-    .social-icon {
-      width: 36px; height: 36px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.85rem;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .social-icon:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* ─── SCROLL TO TOP ─── */
-    #scrollTop {
-      position: fixed; bottom: 2rem; right: 2rem;
-      width: 42px; height: 42px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--muted);
-      cursor: pointer;
-      opacity: 0; pointer-events: none;
-      transition: all 0.3s;
-      z-index: 50;
-    }
-    #scrollTop.visible { opacity: 1; pointer-events: all; }
-    #scrollTop:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 1024px) {
-      nav { padding: 1.2rem 2rem; }
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      section { padding: 5rem 2rem; }
-      footer { padding: 1.5rem 2rem; }
-      #home { padding: 7rem 2rem 3rem; }
-      .about-grid, .contact-grid, .timeline-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .services-grid, .portfolio-grid { grid-template-columns: repeat(2,1fr); }
-      .about-image-wrap { max-width: 320px; }
-    }
-    @media (max-width: 640px) {
-      .services-grid, .portfolio-grid { grid-template-columns: 1fr; }
-      .hero-stats { gap: 1.5rem; }
-      .form-row { grid-template-columns: 1fr; }
-    }
-  </style>
 </head>
-<body>
 
-<!-- NAV -->
-<nav id="navbar">
-  <a href="#home" class="nav-logo"><span>Pablo</span>.dev</a>
-  <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skill">Skills</a></li>
-    <li><a href="#qualification">Experience</a></li>
-    <li><a href="#service">Services</a></li>
-    <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="mailto:espinozapablo1999@gmail.com" class="nav-cta">Hire Me</a>
-  <div class="hamburger" id="hamburger">
-    <span></span><span></span><span></span>
-  </div>
-</nav>
+<body data-spy="scroll" data-target=".navbar" data-offset="51">
+    <!-- Navbar Start -->
+    <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
+        <a href="index.html" class="navbar-brand ml-lg-3">
+            <h1 class="m-0 display-5"><span class="text-primary">My</span>Folio</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
+            <div class="navbar-nav m-auto py-0">
+                <a href="#home" class="nav-item nav-link active">Home</a>
+                <a href="#about" class="nav-item nav-link">About</a>
+                <a href="#qualification" class="nav-item nav-link">Quality</a>
+                <a href="#skill" class="nav-item nav-link">Skill</a>
+                <a href="#service" class="nav-item nav-link">Service</a>
+                <a href="#portfolio" class="nav-item nav-link">Portfolio</a>
+                <a href="#contact" class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="" class="btn btn-outline-primary d-none d-lg-block">Hire Me</a>
+        </div>
+    </nav>
+    <!-- Navbar End -->
 
-<!-- HERO -->
-<section id="home">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-glow2"></div>
-  <div class="hero-content">
-    <div class="hero-tag">Available for freelance projects</div>
-    <h1 class="hero-name">Pablo<br><span class="accent">Espinoza</span></h1>
-    <p class="hero-role">
-      <span id="typed-text"></span><span class="typed-cursor">|</span>
-    </p>
-    <p class="hero-desc">
-      Information Technology Engineer specializing in Full Stack development — building scalable web systems and clean, maintainable software from Costa Rica.
-    </p>
-    <div class="hero-actions">
-      <a href="#portfolio" class="btn-primary-custom"><i class="fa fa-code"></i> View My Work</a>
-      <a href="mailto:espinozapablo1999@gmail.com" class="btn-ghost"><i class="fa fa-envelope"></i> Get In Touch</a>
+    <div class="container-fluid d-flex align-items-center mb-5 py-5" id="home" style="background-image: url('img/header.jpg');">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 px-5 pl-lg-0 pb-5 pb-lg-0">
+                    <img class="img-fluid w-100 rounded-circle shadow-sm" src="img/Acerca.jpeg" alt="">
+                </div>
+                <div class="col-lg-7 text-center text-lg-left">
+                    <h3 class="text-white font-weight-normal mb-3">I'm</h3>
+                    <h1 class="display-3 text-uppercase text-primary mb-2" style="-webkit-text-stroke: 2px #ffffff;">Pablo Espinoza</h1>
+                    <h1 class="typed-text-output d-inline font-weight-lighter text-white"></h1>
+                    <div class="typed-text d-none">Web Developer, Front End Developer, Apps Developer</div>
+                    <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-lg-start pt-5">
+                        <p class="text-center text-lg-left" style="color: #ffffff;">
+                            E-mail:
+                            <span id="email" style="cursor: pointer;" onclick="copyEmail()">
+                                <i class="fas fa-copy" style="margin-right: 5px;"></i>
+                                espinozapablo1999@gmail.com
+                            </span>
+                        </p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="hero-stats">
-      <div>
-        <div class="stat-num">5<span>+</span></div>
-        <div class="stat-label">Years Learning</div>
-      </div>
-      <div>
-        <div class="stat-num">7<span>+</span></div>
-        <div class="stat-label">Projects Shipped</div>
-      </div>
-      <div>
-        <div class="stat-num">8<span>+</span></div>
-        <div class="stat-label">Technologies</div>
-      </div>
-      <div>
-        <div class="stat-num">1<span></span></div>
-        <div class="stat-label">Degree Completed</div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-image-wrap">
-        <img src="img/Acerca.jpeg" alt="Pablo Espinoza" onerror="this.style.display='none'">
-        <div class="about-image-frame"></div>
-      </div>
-      <div>
-        <div class="section-label">About Me</div>
-        <h2 class="section-title">Software Engineer &<br>Full Stack Developer</h2>
-        <div class="section-line"></div>
-        <p style="color:var(--muted);line-height:1.75;margin-bottom:1.5rem;font-size:0.95rem;">
-          I'm a passionate Full Stack Developer and newly graduated Information Technology Engineer from UTN Costa Rica. With hands-on professional experience across .NET, PHP Laravel, and React ecosystems, I build robust, scalable software systems with clean architecture at their core.
-        </p>
-        <p style="color:var(--muted);line-height:1.75;margin-bottom:2rem;font-size:0.95rem;">
-          I thrive in fast-paced environments where I can architect, build, and iterate — from designing database schemas to crafting polished user interfaces.
-        </p>
-        <div class="about-info">
-          <div class="info-item"><label>Name</label><p>Pablo Espinoza</p></div>
-          <div class="info-item"><label>Degree</label><p>IT Engineering — UTN</p></div>
-          <div class="info-item"><label>Location</label><p>Guanacaste, Costa Rica</p></div>
-          <div class="info-item"><label>Phone</label><p>+506 6125 9159</p></div>
-          <div class="info-item"><label>Email</label><p>espinozapablo1999@gmail.com</p></div>
-          <div class="info-item"><label>Status</label><p><span class="badge-available">Open to work</span></p></div>
+
+    <!-- About Start -->
+    <div class="container-fluid py-5" id="about">
+        <div class="container">
+            <div class="position-relative d-flex align-items-center justify-content-center">
+                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">About</h1>
+                <h1 class="position-absolute text-uppercase text-primary">About Me</h1>
+            </div>
+            <div class="container">
+                <div class="col">
+                    <h3 class="mb-4">Software Developer</h3>
+                    <p>I am a passionate
+                        programmer with experience
+                        in web design and development.
+                        I consider myself a responsible,
+                        persevering, committed person and always
+                        seeking excellence in everything
+                        I do.</p>
+                    <div class="row mb-3">
+                        <div class="col-sm-6 py-2"><h6>Name: <span class="text-secondary">Pablo Espinoza</span></h6></div>
+                        <div class="col-sm-6 py-2"><h6>Degree: <span class="text-secondary">Information Technology Engineer </span></h6></div>
+                        <div class="col-sm-6 py-2"><h6>Phone: <span class="text-secondary">+506 61259159</span></h6></div>
+                        <div class="col-sm-6 py-2"><h6>Email: <span class="text-secondary">espinozapablo1999@gmail.com</span></h6></div>
+                        <div class="col-sm-6 py-2"><h6>Address: <span class="text-secondary">Guanacaste,Costa Rica</span></h6></div>
+                        <div class="col-sm-6 py-2"><h6>Freelance: <span class="text-secondary">Available</span></h6></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Qualification Start -->
+    <div class="container-fluid py-5" id="qualification">
+        <div class="container">
+            <div class="position-relative d-flex align-items-center justify-content-center">
+                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Quality</h1>
+                <h1 class="position-absolute text-uppercase text-primary">Education & Expericence</h1>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h3 class="mb-4">My Education</h3>
+                    <div class="border-left border-primary pt-2 pl-4 ml-2">
+                        <div class="position-relative mb-4">
+                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
+                            <h5 class="font-weight-bold mb-1">Bachelor of Engineering in Information Technology </h5>
+                            <p class="mb-2"><strong>Technical University of Costa Rica UTN</strong> | <small>2023 - 2024</small></p>
+                            <p>Full Stack Software Development, Web Design and Development, Application Architecture, Advanced Database Administration, Technical Support, Computer Network Architecture</p>
+                        </div>
+                        <div class="position-relative mb-4">
+                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
+                            <h5 class="font-weight-bold mb-1">Diploma in information technology engineering</h5>
+                            <p class="mb-2"><strong>Technical University of Costa Rica UTN</strong> | <small>2020 - 2023</small></p>
+                            <p>Software development, Web page design, Databases, Technical support, Computer networks</p>
+                        </div>
+                        <div class="position-relative mb-4">
+                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
+                            <h5 class="font-weight-bold mb-1">Web development with .NET</h5>
+                            <p class="mb-2"><strong>Train for employment</strong> | <small>2020 - 2021</small></p>
+                            <p>Design patterns, web resources, MVC, API consumption, Migrations. C# ASP.NET CORE and  Desktop .NET Fromework</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="mb-4">My Expericence</h3>
+                    <div class="border-left border-primary pt-2 pl-4 ml-2">
+                        <div class="position-relative mb-4">
+                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
+                            <h5 class="font-weight-bold mb-1">Software Developer</h5>
+                            <p class="mb-2"><strong>COCOCO Company</strong>  </p>
+                            <p>
+                                <ul>
+                                    <li>Reconstruction and updating of .NET management systems for support, ecommerce, and billing areas.</li>
+                                    <li>Design and data presentation, creation of views and front-end components using Razor, Vue.js, AJAX, and jQuery.</li>
+                                    <li>Design and adaptation of responsive interfaces using Bootstrap 5, HTML, and CSS.</li>
+                                    <li>Implementation and management of databases with Entity Framework (EF) and optimized queries using LinQ in SQL Server.</li>
+                                    <li>Development of Web APIs based on HTTP operations (GET, POST, PUT, DELETE) according to client requirements.</li>
+                                    <li>Application of design patterns such as MVC and Repository, and N-layer architecture.</li>
+                                    <li>Management of dependency injections, authentication, and authorization in web projects.</li>
+                                </ul>
+                            </p>
+                        </div>
+                        <div class="position-relative mb-4">
+                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
+                             <p>
+                                 <ul>
+                                   <li>PHP web applications with the Laravel framework, migrations, routes, views, Apache, controllers (Eloquent ORM), REST APIs, MVC, and OOP.</li>
+                                   <li>Reconstruction and updating of PHP Laravel management systems.</li>
+                                   <li>Systems (Task Management, ecommerce, HRM).</li>
+                                   <li>Implementation of Laravel APIs Notifications (Mail, Telegram).</li>
+                                   <li>Chart.js APIs for presenting statistical graphs.</li>
+                                   <li>Vue.js / JavaScript, jQuery, CSS3 / Bootstrap 5.</li>
+                                </ul>
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Qualification End -->
+
+
+    <!-- Skill Start -->
+    <div class="container-fluid py-5" id="skill">
+        <div class="container">
+            <div class="position-relative d-flex align-items-center justify-content-center">
+                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Skills</h1>
+                <h1 class="position-absolute text-uppercase text-primary">My Skills</h1>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold">HTML | CSS | BOOSTRAPS
+                                <img src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/172202717/original/5462529338d0af5cb9d049ba7f6c38dec1b419b6/develop-frontpage-using-html-css-bootstrap.png" width="50px" height="30px" alt="" srcset="">
+                            </h6>
+                            <h6 class="font-weight-bold">95%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar " style="background-color: var(--orange);" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold">JavaScript
+                                <img src="https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png" width="40px" height="40px" alt="" srcset="">
+
+                            </h6>
+                            <h6 class="font-weight-bold">85%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold">Java
+                                <img src="https://cdn-icons-png.flaticon.com/512/226/226777.png" width="40px" height="40px" alt="" srcset="">
+
+                            </h6>
+                            <h6 class="font-weight-bold">80%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="background-color: var(--red);" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold">SQL Server
+                                <img src="https://img.icons8.com/?size=512&id=laYYF3dV0Iew&format=png" width="40px" height="40px" alt="" srcset="">
+
+                            </h6>
+                            <h6 class="font-weight-bold">85%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-dark "  role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold">C# ASP.NET CORE 
+                                <img src="https://logos-world.net/wp-content/uploads/2022/01/NET-Framework-Logo-2010.png" width="60px" height="40px" alt="" srcset="">
+
+                            </h6>
+                            <h6 class="font-weight-bold">95%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar "  style="background-color: var(--cyan);" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between"> 
+                            <h6 class="font-weight-bold">.NET Framework
+                                <img src="https://logos-world.net/wp-content/uploads/2022/01/NET-Framework-Symbol.png" width="60px" height="35px" alt="" srcset="">
+
+                            </h6>
+                            <h6 class="font-weight-bold">80%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar " style="background-color: var(--purple);"  role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold">React JS & Node 
+                                <img src="https://mobylab.docs.crescdi.pub.ro/img/web-programming/react.png" width="40px" height="40px" alt="" srcset="">
+                                <img src="https://victorroblesweb.es/wp-content/uploads/2018/01/nodejs-victorroblesweb.png" width="40px" height="40px" alt="" srcset="">
+
+                            </h6>
+                            <h6 class="font-weight-bold">75%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold">PHP Laravel
+                                <img src="https://static-00.iconduck.com/assets.00/laravel-icon-497x512-uwybstke.png" width="30px" height="30px" alt="" srcset="">
+
+                            </h6>
+                            <h6 class="font-weight-bold">85%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar " style="background-color: var(--red);"  role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold">Python Django
+                                <img src="https://goldeneagle.ai/static/images/technology/django.png" width="30px" height="30px" alt="" srcset="">
+                            </h6>
+                            <h6 class="font-weight-bold">70%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Skill End -->
+
+
+    <!-- Services Start -->
+    <div class="container-fluid pt-5" id="service">
+        <div class="container">
+            <div class="position-relative d-flex align-items-center justify-content-center">
+                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Service</h1>
+                <h1 class="position-absolute text-uppercase text-primary">My Services</h1>
+            </div>
+            <div class="row pb-3">
+                <div class="col-lg-4 col-md-6 text-center mb-5">
+                    <div class="d-flex align-items-center justify-content-center mb-4">
+                        <i class="fa fa-2x fa-laptop service-icon bg-primary text-white mr-3"></i>
+                        <h4 class="font-weight-bold m-0">Web Design</h4>
+                    </div>
+                    <p>I create attractive and functional visual experiences, optimized for different devices, with a focus on usability and responsive design.</p>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center mb-5">
+                    <div class="d-flex align-items-center justify-content-center mb-4">
+                        <i class="fa fa-2x fa-laptop-code service-icon bg-primary text-white mr-3"></i>
+                        <h4 class="font-weight-bold m-0">Web Development</h4>
+                    </div>
+                    <p>I develop custom software solutions, ensuring quality, scalability and performance through modern coding practices</p>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center mb-5">
+                    <div class="d-flex align-items-center justify-content-center mb-4">
+                        <i class="fab fa-2x fa-android service-icon bg-primary text-white mr-3"></i>
+                        <h4 class="font-weight-bold m-0">Apps Design</h4>
+                    </div>
+                    <p>Design and development of intuitive and high-performance mobile applications, focused on improving the user experience and meeting business objectives.</p>
+                </div>
+              
+               
+            </div>
+        </div>
+    </div>
+    <!-- Services End -->
+
+
+    <!-- Portfolio Start -->
+    <div class="container-fluid pt-5 pb-3" id="portfolio">
+        <div class="container">
+            <div class="position-relative d-flex align-items-center justify-content-center">
+                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Gallery</h1>
+                <h1 class="position-absolute text-uppercase text-primary">My Portfolio</h1>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center mb-2">
+                    <ul class="list-inline mb-4" id="portfolio-flters">
+                        <li class="btn btn-sm btn-outline-primary m-1 active"  data-filter="*">All</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".first">Design</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".second">Development</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row portfolio-container">
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid rounded w-100" src="img/Front1/Init.png" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                            <a href="img/Front1/F7.png" data-lightbox="portfolio">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                            <a href="img/Front1/F.png" data-lightbox="portfolio"></a>
+
+                            <a href="img/Front1/F1.png" data-lightbox="portfolio"></a>
+
+                            <a href="img/Front1/F5.png" data-lightbox="portfolio"></a>
+                            <a href="img/Front1/F6.png" data-lightbox="portfolio"></a>
+
+                            <a href="img/Front1/F2.png" data-lightbox="portfolio"></a>
+                            </a>
+                            <a href="img/Front1/F3.png" data-lightbox="portfolio"></a>
+                            <a href="img/Front1/F4.png" data-lightbox="portfolio"></a>
+                        </a>
+                        </div>
+                    </div>
+                    <a class="btn btn-sm btn-outline-primary m-1" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                     <strong>HTML5</strong>, Boostraps 5, CSS , JavaScript. <br> <strong style="color:darkcyan;">See more</strong></a>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid rounded w-100" src="img/php/Init.png" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                            <a href="img/php/F1.png" data-lightbox="portfolio">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                            <a href="img/php/F2.png" data-lightbox="portfolio">
+                            </a>
+                            <a href="img/php/F3.png" data-lightbox="portfolio">
+                            </a>
+                        </div>
+                    </div>
+                   <a class="btn btn-sm btn-outline-primary m-1" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ProductInventory" > <strong>PHP</strong>, Ajax JavaScript, MySql <br> <strong style="color: darkcyan;">See more</strong></a>
+                   <a class="btn btn-sm btn-outline-primary m-1 active"href="https://github.com/PabloEspinoza1999/STORE_ADMINISTRATION"  >Go to GitHub</a>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid rounded w-100" src="img/NET3/init.png" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                            <a href="img/NET3/init.png" data-lightbox="portfolio">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                            <a href="img/NET3/F1.png" data-lightbox="portfolio">
+                            </a>
+                            <a href="img/NET3/F2.png" data-lightbox="portfolio">
+                            </a>
+                        </div>
+                    </div>
+                    <a class="btn btn-sm btn-outline-primary m-1" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Student"> <strong>C#</strong>, ASP.NET CORE, NOSQL Cassandra <br> <strong style="color: darkcyan;">See more</strong> </a>
+                    <a class="btn btn-sm btn-outline-primary m-1 active"href="https://github.com/PabloEspinoza1999/CRUD_STUDENT_APP" >Go to GitHub</a>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid rounded w-100" src="img/NET2/F1.png" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                        
+                            <a href="img/NET2/F2.png" data-lightbox="portfolio">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                            <a href="img/NET2/F4.png" data-lightbox="portfolio">
+                            </a>
+                            <a href="img/NET2/F3.png" data-lightbox="portfolio">
+                            </a>
+                            <a href="img/NET2/F1.png" data-lightbox="portfolio">
+                            </a>
+                        </div>
+                    </div>
+                    <a class="btn btn-sm btn-outline-primary m-1" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ElectronicBilling"> <strong>C#</strong>, ASP.NET CORE, JavaScript, SQL Server <br> <strong style="color: darkcyan;">See more</strong></a>
+                    <a class="btn btn-sm btn-outline-primary m-1 active" href="https://github.com/PabloEspinoza1999/APP_HACIENDA" >Go to Git</a>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid rounded w-100" src="img/NET/F1.png" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                        
+                            <a href="img/NET/F1.png" data-lightbox="portfolio">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                            <a href="img/NET/F2.png" data-lightbox="portfolio">
+                            </a>
+                            <a href="img/NET/F3.png" data-lightbox="portfolio">
+                            </a>
+                        </div>
+                    </div>
+                    <a class="btn btn-sm btn-outline-primary m-1" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Inventory"> <strong>C#</strong>, ASP.NET CORE,JavaScript, SQL Server <br> <strong style="color: darkcyan;">See more</strong></a>
+                    <a class="btn btn-sm btn-outline-primary m-1 active"href="https://github.com/PabloEspinoza1999/INV_APP_SALES" >Go to Git</a>
+                </div>
+
+
+                 <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid rounded w-100" src="img/frontend_react.png" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                        
+                            <a href="img/frontend_react.png" data-lightbox="portfolio">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <a class="btn btn-sm btn-outline-primary m-1" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#FrontendReact"> <strong>PHP</strong>, PHP Laravel, React JS <br> <strong style="color: darkcyan;">See more</strong></a>
+                    <a class="btn btn-sm btn-outline-primary m-1 active"href="https://github.com/PabloEspinoza1999/MASTER_WEB" >Go to Git</a>
+                </div>
+
+
+
+                
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid rounded w-100" src="img/PythonGalery/init.png" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                            <a href="img/PythonGalery/F.png" data-lightbox="portfolio">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                            <a href="img/PythonGalery/F2.png" data-lightbox="portfolio"></a>
+                            </a>
+                            
+                           <a href="img/PythonGalery/F5.png" data-lightbox="portfolio"></a>
+                        </a>
+                        </div>
+                    </div>
+                    <a  class="btn btn-sm btn-outline-primary m-1" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#DataAnalysis"> <strong>Python</strong>Django, JavaScript  <br><strong style="color: darkcyan;">See more</strong></a>
+                    <a class="btn btn-sm btn-outline-primary m-1 active" href="https://github.com/PabloEspinoza1999/APP_NUMERICAL_METHODS">Go to Git</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Pharmacy</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            This pharmacy website is developed with <strong>JavaScript</strong> and <strong>Bootstrap</strong>, offering a <strong>dynamic and responsive interface</strong> that ensures a seamless experience across all devices. Its professional design facilitates intuitive navigation, efficiently highlighting products and promotions for customers.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- SKILLS -->
-<section id="skill">
-  <div class="container">
-    <div class="section-label">Technical Skills</div>
-    <h2 class="section-title">My Expertise</h2>
-    <div class="section-line"></div>
-    <div class="skills-grid" id="skillsGrid">
-      <!-- filled by JS -->
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="qualification">
-  <div class="container">
-    <div class="section-label">Background</div>
-    <h2 class="section-title">Education & Experience</h2>
-    <div class="section-line"></div>
-    <div class="timeline-grid">
-      <div>
-        <h3 style="color:var(--heading);font-size:1.1rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.6rem;">
-          <i class="fa fa-graduation-cap" style="color:var(--accent)"></i> Education
-        </h3>
-        <div class="timeline">
-          <div class="tl-item">
-            <div class="tl-dot"></div>
-            <div class="tl-date">2023 — 2024</div>
-            <div class="tl-title">Bachelor of Engineering in Information Technology</div>
-            <div class="tl-org">Technical University of Costa Rica (UTN)</div>
-            <div class="tl-desc">Full Stack Development · Web Architecture · Advanced Database Administration · Computer Networks · Technical Support</div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-dot"></div>
-            <div class="tl-date">2020 — 2023</div>
-            <div class="tl-title">Diploma in Information Technology Engineering</div>
-            <div class="tl-org">Technical University of Costa Rica (UTN)</div>
-            <div class="tl-desc">Software Development · Web Design · Databases · Technical Support · Computer Networks</div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-dot"></div>
-            <div class="tl-date">2020 — 2021</div>
-            <div class="tl-title">Web Development with .NET</div>
-            <div class="tl-org">Train for Employment</div>
-            <div class="tl-desc">Design Patterns · MVC · API Consumption · Migrations · C# ASP.NET Core & Desktop .NET Framework</div>
-          </div>
+  
+  <div class="modal fade" id="ProductInventory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Inventory</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-      </div>
-      <div>
-        <h3 style="color:var(--heading);font-size:1.1rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.6rem;">
-          <i class="fa fa-briefcase" style="color:var(--accent)"></i> Experience
-        </h3>
-        <div class="timeline">
-          <div class="tl-item">
-            <div class="tl-dot"></div>
-            <div class="tl-date">Current</div>
-            <div class="tl-title">Software Developer</div>
-            <div class="tl-org">COCOCO Company</div>
-            <div class="tl-desc">
-              <ul style="padding-left:1.1rem;">
-                <li>Rebuilt and modernized .NET management systems for support, e-commerce, and billing</li>
-                <li>Built front-end components with Razor, Vue.js, AJAX, jQuery and Bootstrap 5</li>
-                <li>Implemented Entity Framework (EF) with optimized LINQ queries on SQL Server</li>
-                <li>Developed RESTful Web APIs following MVC, Repository, and N-layer patterns</li>
-                <li>Managed DI, authentication, and authorization in production web projects</li>
-              </ul>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-dot"></div>
-            <div class="tl-date">Previous</div>
-            <div class="tl-title">PHP / Laravel Developer</div>
-            <div class="tl-org">COCOCO Company</div>
-            <div class="tl-desc">
-              <ul style="padding-left:1.1rem;">
-                <li>Built Task Management, E-commerce, and HRM systems in Laravel (Eloquent ORM)</li>
-                <li>Developed Laravel REST APIs with Mail & Telegram notification integrations</li>
-                <li>Delivered statistical dashboards using Chart.js and Vue.js</li>
-              </ul>
-            </div>
-          </div>
+        <div class="modal-body">
+            <strong>Supermarket inventory </strong> and management system designed to automate and optimize daily operations, such as stock control, sales registration, and product updates. This system is developed in native PHP, and AJAX. Improving the user experience.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- SERVICES -->
-<section id="service">
-  <div class="container">
-    <div class="section-label">What I Do</div>
-    <h2 class="section-title">My Services</h2>
-    <div class="section-line"></div>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon"><i class="fa fa-code"></i></div>
-        <div class="service-title">Full Stack Development</div>
-        <div class="service-desc">End-to-end web application development using modern frameworks. From architecture and API design to polished front-end interfaces.</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><i class="fa fa-database"></i></div>
-        <div class="service-title">Backend & APIs</div>
-        <div class="service-desc">Robust REST APIs with .NET, Laravel, or Django. Clean architecture patterns, secure authentication, and optimized database queries.</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><i class="fa fa-laptop"></i></div>
-        <div class="service-title">Web Design & UI</div>
-        <div class="service-desc">Responsive, accessible, and visually refined interfaces with Bootstrap, React, or Vue. Mobile-first and performance-focused.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PORTFOLIO -->
-<section id="portfolio" style="background:var(--surface);border-top:1px solid var(--border);">
-  <div class="container">
-    <div class="section-label">Projects</div>
-    <h2 class="section-title">My Portfolio</h2>
-    <div class="section-line"></div>
-    <div class="portfolio-filters">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="dotnet">C# .NET</button>
-      <button class="filter-btn" data-filter="php">PHP / Laravel</button>
-      <button class="filter-btn" data-filter="frontend">Frontend</button>
-      <button class="filter-btn" data-filter="python">Python</button>
-    </div>
-    <div class="portfolio-grid" id="portfolioGrid">
-      <!-- filled by JS -->
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <div class="section-label">Get In Touch</div>
-    <h2 class="section-title">Contact Me</h2>
-    <div class="section-line"></div>
-    <div class="contact-grid">
-      <div>
-        <p style="color:var(--muted);line-height:1.75;margin-bottom:2rem;font-size:0.95rem;">
-          Available for freelance projects, full-time opportunities, or just a good conversation about tech. Don't hesitate to reach out!
-        </p>
-        <div class="contact-links">
-          <a class="contact-item" href="mailto:espinozapablo1999@gmail.com">
-            <div class="contact-item-icon"><i class="fa fa-envelope"></i></div>
-            <div>
-              <div class="contact-item-label">Email</div>
-              <div class="contact-item-val">espinozapablo1999@gmail.com</div>
-            </div>
-          </a>
-          <a class="contact-item" href="https://wa.me/50661259159" target="_blank">
-            <div class="contact-item-icon"><i class="fab fa-whatsapp"></i></div>
-            <div>
-              <div class="contact-item-label">WhatsApp</div>
-              <div class="contact-item-val">+506 6125 9159</div>
-            </div>
-          </a>
-          <a class="contact-item" href="https://linkedin.com/in/pablo-espinoza-rugama-6a223b20b" target="_blank">
-            <div class="contact-item-icon"><i class="fab fa-linkedin"></i></div>
-            <div>
-              <div class="contact-item-label">LinkedIn</div>
-              <div class="contact-item-val">pablo-espinoza-rugama</div>
-            </div>
-          </a>
-          <a class="contact-item" href="https://github.com/PabloEspinoza1999/" target="_blank">
-            <div class="contact-item-icon"><i class="fab fa-github"></i></div>
-            <div>
-              <div class="contact-item-label">GitHub</div>
-              <div class="contact-item-val">PabloEspinoza1999</div>
-            </div>
-          </a>
+  <div class="modal fade" id="Student" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel"> Student management</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-      </div>
-      <div>
-        <div class="contact-form">
-          <div class="form-row">
-            <div class="field">
-              <label>Name</label>
-              <input type="text" placeholder="Your name" id="cf-name">
-            </div>
-            <div class="field">
-              <label>Email</label>
-              <input type="email" placeholder="your@email.com" id="cf-email">
-            </div>
-          </div>
-          <div class="field">
-            <label>Subject</label>
-            <input type="text" placeholder="What's this about?" id="cf-subject">
-          </div>
-          <div class="field">
-            <label>Message</label>
-            <textarea placeholder="Tell me about your project..." id="cf-message"></textarea>
-          </div>
-          <button class="submit-btn" onclick="sendMail()">
-            <i class="fa fa-paper-plane"></i> Send Message
-          </button>
+        <div class="modal-body">
+            <strong>Students</strong> <br>
+            Syst is a basic CRUD system for student management, developed in C# .NET with connection to Cassandra. It uses the MVC design pattern and the Repository pattern, and includes implementations of services and drivers to interact with the Cassandra database .  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-copy">© 2025 Pablo Espinoza — IT Engineer</div>
-  <div class="footer-socials">
-    <a class="social-icon" href="https://github.com/PabloEspinoza1999/" target="_blank"><i class="fab fa-github"></i></a>
-    <a class="social-icon" href="https://linkedin.com/in/pablo-espinoza-rugama-6a223b20b" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a class="social-icon" href="mailto:espinozapablo1999@gmail.com"><i class="fa fa-envelope"></i></a>
-    <a class="social-icon" href="https://wa.me/50661259159" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  <div class="modal fade" id="ElectronicBilling" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel"> Electronic billing</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <strong>Treasury .NET</strong> <br>
+            This system is designed to automate and optimize the electronic invoicing process, complying with the regulations established by the Ministry of Finance. It allows the generation of invoices in XML format, which ensures compatibility with the API to the Treasury.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
   </div>
-</footer>
+    
+  <div class="modal fade" id="Inventory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Inventory</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            It is an inventory management system developed in C# .NET, with connection to SQL Server. It uses the MVC and Repository design patterns to ensure a modular architecture, facilitating efficient inventory management and interaction with the database.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<!-- Scroll Top -->
-<div id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-  <i class="fa fa-chevron-up" style="font-size:0.8rem;color:inherit;"></i>
-</div>
+  <div class="modal fade" id="DataAnalysis" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Data Analysis</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+           <strong> System developed in Python Django and Js  </strong> <br>
+           Its objective is to optimize response time in call centers, calculate the optimal price to maximize return on investment, adjust prices to improve customer satisfaction, and minimize production costs within a given budget.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="FrontendReact" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">API </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+           <strong> System developed in Laravel and React </strong> <br>
+            An interactive and responsive user interface was developed using React.js, improving the user experience in the web application. Data consumption from a RESTful API built with Laravel was implemented, using Axios to make asynchronous HTTP requests and handle responses.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- Portfolio End -->
+    <div class="container-fluid py-5" id="contact">
+        <div class="container">
+            <div class="position-relative d-flex align-items-center justify-content-center">
+                <h1 class="display-1 text-uppercase text-white d-none d-md-block" style="-webkit-text-stroke: 1px #dee2e6;">Contact</h1>
+                <h1 class="position-absolute text-uppercase text-primary">Contact Me</h1>
+                <br>
+                <br>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-md-10 text-center">
+                                <div class="d-flex flex-wrap justify-content-center">
+                                    <a class="btn btn-sm btn-outline-primary m-2" href="https://github.com/PabloEspinoza1999/" target="_blank">
+                                        <i class="fab fa-github"></i> GitHub
+                                    </a>
+                                    <a class="btn btn-sm btn-outline-primary m-2" href="https://linkedin.com/in/pablo-espinoza-rugama-6a223b20b" target="_blank">
+                                        <i class="fab fa-linkedin"></i> LinkedIn
+                                    </a>
+                                    <a class="btn btn-sm btn-outline-primary m-2" href="mailto:espinozapablo1999@gmail.com">
+                                        <i class="fas fa-envelope"></i> E-mail
+                                    </a>
+                                    <a class="btn btn-sm btn-outline-primary m-2" href="https://wa.me/50661259159">
+                                        <i class="fas fa-phone"></i> WhatsApp
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-primary text-white mt-5 py-5 px-sm-3 px-md-5">
+        <div class="container text-center py-5">
+
+            <div class="d-flex justify-content-center mb-3">
+                <a class="text-white" href="#">Privacy</a>
+                <span class="px-3">|</span>
+                <a class="text-white" href="#">Terms</a>
+                <span class="px-3">|</span>
+                <a class="text-white" href="#">FAQs</a>
+                <span class="px-3">|</span>
+                <a class="text-white" href="#">Help</a>
+            </div>
+            
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Scroll to Bottom -->
+    <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></i>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-outline-dark px-0 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/typed/typed.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
+
+
 
 <script>
-  // ── TYPED TEXT ──
-  const roles = ['Full Stack Developer', 'IT Engineer', 'Backend Specialist', '.NET & Laravel Developer', 'Problem Solver'];
-  let ri = 0, ci = 0, deleting = false;
-  const el = document.getElementById('typed-text');
-  function type() {
-    const cur = roles[ri];
-    if (!deleting) {
-      el.textContent = cur.slice(0, ++ci);
-      if (ci === cur.length) { deleting = true; return setTimeout(type, 1800); }
-    } else {
-      el.textContent = cur.slice(0, --ci);
-      if (ci === 0) { deleting = false; ri = (ri+1) % roles.length; }
+    function copyEmail() {
+        const emailText = document.getElementById("email").innerText;
+        navigator.clipboard.writeText(emailText).then(() => {
+            alert("The email had been copied: " + emailText);
+        }).catch(err => {
+            console.error("Exeption: ", err);
+        });
     }
-    setTimeout(type, deleting ? 50 : 80);
-  }
-  type();
-
-  // ── SKILLS DATA ──
-  const skills = [
-    { name: 'C# ASP.NET Core', pct: 95, tags: ['MVC','REST API','EF Core','DI','Auth'] },
-    { name: 'HTML / CSS / Bootstrap', pct: 95, tags: ['Bootstrap 5','Responsive','SCSS'] },
-    { name: 'SQL Server', pct: 88, tags: ['T-SQL','LINQ','EF','Stored Procs'] },
-    { name: 'PHP Laravel', pct: 87, tags: ['Eloquent ORM','Blade','Artisan','APIs'] },
-    { name: 'JavaScript', pct: 85, tags: ['ES6+','AJAX','jQuery','Vue.js'] },
-    { name: '.NET Framework', pct: 82, tags: ['WinForms','Desktop','MVC'] },
-    { name: 'Java', pct: 80, tags: ['OOP','Spring','Data Structures'] },
-    { name: 'React JS & Node.js', pct: 78, tags: ['Hooks','REST','npm','Axios'] },
-    { name: 'Python Django', pct: 72, tags: ['ORM','REST','Pandas','Numeric Methods'] },
-  ];
-
-  const sg = document.getElementById('skillsGrid');
-  skills.forEach(s => {
-    sg.innerHTML += `
-      <div class="skill-card" data-pct="${s.pct}">
-        <div class="skill-header">
-          <span class="skill-name">${s.name}</span>
-          <span class="skill-pct">${s.pct}%</span>
-        </div>
-        <div class="skill-bar"><div class="skill-fill" style="width:0"></div></div>
-        <div class="skill-tags">${s.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-      </div>`;
-  });
-
-  // ── PORTFOLIO DATA ──
-  const projects = [
-    {
-      title: 'Electronic Billing System',
-      desc: 'Automated invoicing system compliant with Costa Rica Ministry of Finance regulations. Generates XML invoices integrated with the Hacienda API.',
-      techs: ['C#', 'ASP.NET Core', 'SQL Server', 'JS'],
-      filter: 'dotnet',
-      img: 'img/NET2/F1.png',
-      github: 'https://github.com/PabloEspinoza1999/APP_HACIENDA',
-    },
-    {
-      title: 'Inventory & Sales App',
-      desc: 'Full inventory management system with MVC & Repository patterns, SQL Server backend and responsive Bootstrap UI.',
-      techs: ['C#', 'ASP.NET Core', 'SQL Server', 'Bootstrap'],
-      filter: 'dotnet',
-      img: 'img/NET/F1.png',
-      github: 'https://github.com/PabloEspinoza1999/INV_APP_SALES',
-    },
-    {
-      title: 'Student CRUD — Cassandra',
-      desc: 'Student management system using NoSQL Cassandra with MVC, Repository pattern, and custom Cassandra drivers.',
-      techs: ['C#', '.NET', 'Cassandra', 'NoSQL'],
-      filter: 'dotnet',
-      img: 'img/NET3/init.png',
-      github: 'https://github.com/PabloEspinoza1999/CRUD_STUDENT_APP',
-    },
-    {
-      title: 'Supermarket Inventory',
-      desc: 'PHP + AJAX inventory and management system for stock control, sales registration, and product updates.',
-      techs: ['PHP', 'AJAX', 'MySQL', 'Bootstrap'],
-      filter: 'php',
-      img: 'img/php/Init.png',
-      github: 'https://github.com/PabloEspinoza1999/STORE_ADMINISTRATION',
-    },
-    {
-      title: 'Laravel + React SPA',
-      desc: 'Interactive SPA consuming a RESTful Laravel API via Axios. Responsive React frontend with dynamic data rendering.',
-      techs: ['Laravel', 'React JS', 'Axios', 'REST API'],
-      filter: 'php',
-      img: 'img/frontend_react.png',
-      github: 'https://github.com/PabloEspinoza1999/MASTER_WEB',
-    },
-    {
-      title: 'Pharmacy Website',
-      desc: 'Dynamic, fully responsive pharmacy site with animated UI components, product highlights and Bootstrap 5.',
-      techs: ['HTML5', 'CSS3', 'Bootstrap 5', 'JS'],
-      filter: 'frontend',
-      img: 'img/Front1/Init.png',
-    },
-    {
-      title: 'Numerical Methods App',
-      desc: 'Python Django system for call center optimization, ROI pricing, and production cost minimization using numeric algorithms.',
-      techs: ['Python', 'Django', 'Chart.js', 'JS'],
-      filter: 'python',
-      img: 'img/PythonGalery/init.png',
-      github: 'https://github.com/PabloEspinoza1999/APP_NUMERICAL_METHODS',
-    },
-  ];
-
-  function renderPortfolio(filter) {
-    const pg = document.getElementById('portfolioGrid');
-    pg.innerHTML = '';
-    projects.filter(p => filter === 'all' || p.filter === filter).forEach(p => {
-      pg.innerHTML += `
-        <div class="project-card">
-          <div class="project-thumb">
-            <img src="${p.img}" alt="${p.title}" onerror="this.style.display='none'">
-            <div class="project-thumb-overlay"></div>
-          </div>
-          <div class="project-body">
-            <div class="project-tech">${p.techs.map(t=>`<span class="tech-badge">${t}</span>`).join('')}</div>
-            <div class="project-title">${p.title}</div>
-            <div class="project-desc">${p.desc}</div>
-            <div class="project-links">
-              ${p.github ? `<a class="proj-link" href="${p.github}" target="_blank"><i class="fab fa-github"></i> Source Code</a>` : ''}
-            </div>
-          </div>
-        </div>`;
-    });
-  }
-  renderPortfolio('all');
-
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      renderPortfolio(btn.dataset.filter);
-    });
-  });
-
-  // ── INTERSECTION OBSERVER for skill bars ──
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const fill = e.target.querySelector('.skill-fill');
-        if (fill) fill.style.width = e.target.dataset.pct + '%';
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.3 });
-  document.querySelectorAll('.skill-card').forEach(c => obs.observe(c));
-
-  // ── SCROLL TO TOP ──
-  const scrollTopBtn = document.getElementById('scrollTop');
-  window.addEventListener('scroll', () => {
-    scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
-  });
-
-  // ── HAMBURGER (mobile) ──
-  document.getElementById('hamburger').addEventListener('click', () => {
-    const nl = document.querySelector('.nav-links');
-    if (nl.style.display === 'flex') {
-      nl.style.display = 'none';
-    } else {
-      nl.style.display = 'flex';
-      nl.style.flexDirection = 'column';
-      nl.style.position = 'absolute';
-      nl.style.top = '65px';
-      nl.style.left = '0'; nl.style.right = '0';
-      nl.style.background = 'rgba(8,12,16,0.97)';
-      nl.style.padding = '1.5rem 2rem';
-      nl.style.gap = '1.5rem';
-      nl.style.borderBottom = '1px solid var(--border)';
-    }
-  });
-
-  // ── CONTACT FORM ──
-  function sendMail() {
-    const name = document.getElementById('cf-name').value;
-    const email = document.getElementById('cf-email').value;
-    const subject = document.getElementById('cf-subject').value;
-    const msg = document.getElementById('cf-message').value;
-    if (!name || !email || !msg) { alert('Please fill in all required fields.'); return; }
-    const mailto = `mailto:espinozapablo1999@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${name} (${email})\n\n${msg}`)}`;
-    window.open(mailto);
-  }
 </script>
-</body>
-</html>
