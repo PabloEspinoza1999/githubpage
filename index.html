@@ -6,14 +6,10 @@
     <title>Pablo Espinoza | Software Developer & IT Engineer</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Pablo Espinoza, Software Developer, IT Engineer, .NET, Full Stack" name="keywords">
-    <meta content="Pablo Espinoza - Software Developer / IT Engineer. Full Stack developer with expertise in .NET, PHP Laravel, Python Django, React, and more." name="description">
+    <meta content="Pablo Espinoza - IT Engineer / Analyst Programmer / Developer. Full Stack developer with expertise in .NET, PHP Laravel, Python Django, React, and AI integrations (OpenAI, Anthropic, Gemini)." name="description">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet"> 
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -23,49 +19,57 @@
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-
+    <!-- Custom Stylesheet -->
+    <link href="css/custom.css" rel="stylesheet">
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="51">
+<body>
     <!-- Navbar Start -->
     <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
         <a href="index.html" class="navbar-brand ml-lg-3">
             <h1 class="m-0 display-5"><span class="text-primary">Pablo</span>Espinoza</h1>
         </a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <div class="order-lg-2 ml-auto ml-lg-0 d-flex align-items-center" style="margin-right: 1rem;">
+            <button type="button" id="darkModeToggle" class="btn btn-sm btn-outline-primary rounded-circle mr-3" onclick="toggleDarkMode()" title="Dark mode / Modo oscuro" style="width:34px; height:34px; padding:0;">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button type="button" id="langToggle" class="btn btn-sm btn-outline-primary rounded-circle position-relative" onclick="setLang(document.documentElement.lang === 'es' ? 'en' : 'es')" title="Cambiar idioma / Switch language" style="width:34px; height:34px; padding:0;">
+                <i class="fas fa-globe"></i>
+                <span id="langBadge" style="position:absolute; bottom:-4px; right:-4px; font-size:9px; font-weight:bold; background:var(--bs-primary, #0BCEAF); color:#fff; border-radius:8px; padding:0 3px; line-height:14px;">EN</span>
+            </button>
+        </div>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
             <div class="navbar-nav m-auto py-0">
-                <a href="#home" class="nav-item nav-link active">Home</a>
-                <a href="#about" class="nav-item nav-link">About</a>
-                <a href="#qualification" class="nav-item nav-link">Experience</a>
-                <a href="#skill" class="nav-item nav-link">Skill</a>
-                <a href="#service" class="nav-item nav-link">Service</a>
-                <a href="#portfolio" class="nav-item nav-link">Portfolio</a>
-                <a href="#contact" class="nav-item nav-link">Contact</a>
+                <a href="#home" class="nav-item nav-link active" data-en="Home" data-es="Inicio">Home</a>
+                <a href="#about" class="nav-item nav-link" data-en="About" data-es="Sobre mí">About</a>
+                <a href="#qualification" class="nav-item nav-link" data-en="Experience" data-es="Experiencia">Experience</a>
+                <a href="#skill" class="nav-item nav-link" data-en="Skill" data-es="Habilidades">Skill</a>
+                <a href="#service" class="nav-item nav-link" data-en="Service" data-es="Servicios">Service</a>
+                <a href="#portfolio" class="nav-item nav-link" data-en="Portfolio" data-es="Portafolio">Portfolio</a>
+                <a href="#contact" class="nav-item nav-link" data-en="Contact" data-es="Contacto">Contact</a>
             </div>
-            <a href="mailto:espinozapablo1999@gmail.com" class="btn btn-outline-primary d-none d-lg-block">Hire Me</a>
+            <a href="mailto:espinozapablo1999@gmail.com" class="btn btn-outline-primary d-none d-lg-block mr-3" data-en="Hire Me" data-es="Contrátame">Hire Me</a>
         </div>
     </nav>
     <!-- Navbar End -->
 
-    <div class="container-fluid d-flex align-items-center mb-5 py-5" id="home" style="background-image: url('img/header.jpg');">
+    <div class="container-fluid d-flex align-items-center mb-5 py-5" id="home" style="background-image: url('img/site/header.png');">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5 px-5 pl-lg-0 pb-5 pb-lg-0">
-                    <img class="img-fluid w-100 rounded-circle shadow-sm" src="img/Acerca.jpeg" alt="">
+                    <img class="img-fluid w-100 rounded-circle shadow-sm" src="img/site/Acerca.jpeg" alt="">
                 </div>
                 <div class="col-lg-7 text-center text-lg-left">
-                    <h3 class="text-white font-weight-normal mb-3">I'm</h3>
-                    <h1 class="display-3 text-uppercase text-primary mb-2" style="-webkit-text-stroke: 2px #ffffff;">Pablo Espinoza</h1>
+                    <h3 class="text-white font-weight-normal mb-3" data-en="I'm" data-es="Soy">I'm</h3>
+                    <h1 class="display-3 text-uppercase text-primary mb-2">Pablo Espinoza</h1>
                     <h1 class="typed-text-output d-inline font-weight-lighter text-white"></h1>
-                    <div class="typed-text d-none">Software Developer, Full Stack Developer, .NET Developer, Web Developer, Apps Developer</div>
+                    <div class="typed-text d-none" data-en="Software Developer, Full Stack Developer, .NET Developer, Web Developer, Apps Developer" data-es="Desarrollador de Software, Desarrollador Full Stack, Desarrollador .NET, Desarrollador Web, Desarrollador de Apps">Software Developer, Full Stack Developer, .NET Developer, Web Developer, Apps Developer</div>
                     <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-lg-start pt-5">
                         <p class="text-center text-lg-left" style="color: #ffffff;">
-                            E-mail:
+                            <span data-en="E-mail:" data-es="Correo:">E-mail:</span>
                             <span id="email" style="cursor: pointer;" onclick="copyEmail()">
                                 <i class="fas fa-copy" style="margin-right: 5px;"></i>
                                 espinozapablo1999@gmail.com
@@ -83,22 +87,22 @@
     <div class="container-fluid py-5" id="about">
         <div class="container">
             <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">About</h1>
-                <h1 class="position-absolute text-uppercase text-primary">About Me</h1>
+                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;" data-en="About" data-es="Acerca">About</h1>
+                <h1 class="position-absolute text-uppercase text-primary" data-en="About Me" data-es="Acerca de Mí">About Me</h1>
             </div>
             <div class="container">
                 <div class="col">
-                    <h3 class="mb-4">Software Developer / IT Engineer</h3>
-                    <p>I am a passionate programmer with experience in web design and development. I consider myself a responsible, persevering, committed person and always seeking excellence in everything I do.</p>
+                    <h3 class="mb-4" data-en="IT Engineer / Analyst Programmer / Developer" data-es="Ingeniero en TI / Analista Programador / Desarrollador">IT Engineer / Analyst Programmer / Developer</h3>
+                    <p data-en="Professional in programming and web development, with experience creating applications and digital solutions, integrating Artificial Intelligence technologies to optimize processes and improve outcomes. Responsible, persevering and results-oriented, with a focus on continuous improvement and technological innovation." data-es="Profesional en programación y desarrollo web, con experiencia creando aplicaciones y soluciones digitales, integrando tecnologías de Inteligencia Artificial para optimizar procesos y mejorar resultados. Responsable, perseverante y orientado a resultados, con enfoque en la mejora continua y la innovación tecnológica.">Professional in programming and web development, with experience creating applications and digital solutions, integrating Artificial Intelligence technologies to optimize processes and improve outcomes. Responsible, persevering and results-oriented, with a focus on continuous improvement and technological innovation.</p>
                     <div class="row mb-3">
-                        <div class="col-sm-6 py-2"><h6>Name: <span class="text-secondary">Pablo Espinoza</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Degree: <span class="text-secondary">Information Technology Engineer</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Phone: <span class="text-secondary">+506 64002542</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Email: <span class="text-secondary">espinozapablo1999@gmail.com</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Address: <span class="text-secondary">Carrillo, Guanacaste, Costa Rica <small class="text-muted">(Available to relocate to GAM)</small></span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Freelance: <span class="text-secondary">Available</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Languages: <span class="text-secondary">Spanish (Native) · English (Intermediate)</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Methodology: <span class="text-secondary">Scrum</span></h6></div>
+                        <div class="col-sm-6 py-2"><h6><span data-en="Name:" data-es="Nombre:">Name:</span> <span class="text-secondary">Pablo Espinoza</span></h6></div>
+                        <div class="col-sm-6 py-2"><h6><span data-en="Degree:" data-es="Título:">Degree:</span> <span class="text-secondary" data-en="Information Technology Engineer" data-es="Ingeniero en Tecnologías de la Información">Information Technology Engineer</span></h6></div>
+                        <div class="col-sm-6 py-2"><h6><span data-en="Phone:" data-es="Teléfono:">Phone:</span> <span class="text-secondary">+506 64002542</span></h6></div>
+                        <div class="col-sm-6 py-2"><h6><span data-en="Email:" data-es="Correo:">Email:</span> <span class="text-secondary">espinozapablo1999@gmail.com</span></h6></div>
+                        <div class="col-sm-6 py-2"><h6><span data-en="Address:" data-es="Dirección:">Address:</span> <span class="text-secondary">San José, Costa Rica</span></h6></div>
+                        <div class="col-sm-6 py-2"><h6><span data-en="Freelance:" data-es="Freelance:">Freelance:</span> <span class="text-secondary" data-en="Available" data-es="Disponible">Available</span></h6></div>
+                        <div class="col-sm-6 py-2"><h6><span data-en="Languages:" data-es="Idiomas:">Languages:</span> <span class="text-secondary" data-en="Spanish (Native) · English (Intermediate)" data-es="Español (Nativo) · Inglés (Intermedio)">Spanish (Native) · English (Intermediate)</span></h6></div>
+                        <div class="col-sm-6 py-2"><h6><span data-en="Methodology:" data-es="Metodología:">Methodology:</span> <span class="text-secondary">Scrum · Kanban</span></h6></div>
                     </div>
                 </div>
             </div>
@@ -111,74 +115,74 @@
     <div class="container-fluid py-5" id="qualification">
         <div class="container">
             <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Experience</h1>
-                <h1 class="position-absolute text-uppercase text-primary">Education & Experience</h1>
+                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;" data-en="Experience" data-es="Experiencia">Experience</h1>
+                <h1 class="position-absolute text-uppercase text-primary" data-en="Education & Experience" data-es="Educación y Experiencia">Education & Experience</h1>
             </div>
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <h3 class="mb-4">My Education</h3>
+                    <h3 class="mb-4" data-en="My Education" data-es="Mi Educación">My Education</h3>
                     <div class="border-left border-primary pt-2 pl-4 ml-2">
                         <div class="position-relative mb-4">
                             <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Bachelor of Engineering in Information Technology </h5>
+                            <h5 class="font-weight-bold mb-1" data-en="Bachelor of Engineering in Information Technology " data-es="Bachillerato en Ingeniería en Tecnologías de la Información ">Bachelor of Engineering in Information Technology </h5>
                             <p class="mb-2"><strong>Technical University of Costa Rica UTN</strong> | <small>2023 - 2024</small></p>
-                            <p>Full Stack Software Development, Web Design and Development, Application Architecture, Advanced Database Administration, Technical Support, Computer Network Architecture</p>
+                            <p data-en="Full Stack Software Development, Web Design and Development, Application Architecture, Advanced Database Administration, Technical Support, Computer Network Architecture" data-es="Desarrollo de Software Full Stack, Diseño y Desarrollo Web, Arquitectura de Aplicaciones, Administración Avanzada de Bases de Datos, Soporte Técnico, Arquitectura de Redes de Computadoras">Full Stack Software Development, Web Design and Development, Application Architecture, Advanced Database Administration, Technical Support, Computer Network Architecture</p>
                         </div>
                         <div class="position-relative mb-4">
                             <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Diploma in information technology engineering</h5>
+                            <h5 class="font-weight-bold mb-1" data-en="Diploma in information technology engineering" data-es="Diplomado en ingeniería en tecnologías de la información">Diploma in information technology engineering</h5>
                             <p class="mb-2"><strong>Technical University of Costa Rica UTN</strong> | <small>2020 - 2023</small></p>
-                            <p>Software development, Web page design, Databases, Technical support, Computer networks</p>
+                            <p data-en="Software development, Web page design, Databases, Technical support, Computer networks" data-es="Desarrollo de software, Diseño de páginas web, Bases de datos, Soporte técnico, Redes de computadoras">Software development, Web page design, Databases, Technical support, Computer networks</p>
                         </div>
                         <div class="position-relative mb-4">
                             <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Web Development with .NET</h5>
-                            <p class="mb-2"><strong>Train for Employment</strong> | <small>2020 - 2021</small></p>
-                            <p>Design patterns, web resources, MVC, API consumption, Migrations. C# ASP.NET CORE and Desktop .NET Framework.</p>
+                            <h5 class="font-weight-bold mb-1" data-en="Web Development with .NET" data-es="Desarrollo Web con .NET">Web Development with .NET</h5>
+                            <p class="mb-2"><strong data-en="Train for Employment" data-es="Train for Employment">Train for Employment</strong> | <small>2020 - 2021</small></p>
+                            <p data-en="Design patterns, web resources, MVC, API consumption, Migrations. C# ASP.NET CORE and Desktop .NET Framework." data-es="Patrones de diseño, recursos web, MVC, consumo de APIs, Migraciones. C# ASP.NET CORE y .NET Framework de escritorio.">Design patterns, web resources, MVC, API consumption, Migrations. C# ASP.NET CORE and Desktop .NET Framework.</p>
                         </div>
                         <div class="position-relative mb-4">
                             <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Certifications & Training</h5>
-                            <p class="mb-2"><strong>Additional Training</strong></p>
+                            <h5 class="font-weight-bold mb-1" data-en="Certifications & Training" data-es="Certificaciones y Capacitación">Certifications & Training</h5>
+                            <p class="mb-2"><strong data-en="Additional Training" data-es="Capacitación Adicional">Additional Training</strong></p>
                             <ul>
-                                <li><strong>Cisco CCNA</strong> | 2023 — SINAES Accredited</li>
-                                <li>Backend Development Course</li>
-                                <li>Data Analysis with Excel <strong>(INA)</strong></li>
-                                <li>English to Communicate</li>
+                                <li data-en="<strong>Cisco CCNA</strong> | 2023 — SINAES Accredited" data-es="<strong>Cisco CCNA</strong> | 2023 — Acreditado por SINAES"><strong>Cisco CCNA</strong> | 2023 — SINAES Accredited</li>
+                                <li data-en="Backend Development Course" data-es="Curso de Desarrollo Backend">Backend Development Course</li>
+                                <li data-en="Data Analysis with Excel <strong>(INA)</strong>" data-es="Análisis de Datos con Excel <strong>(INA)</strong>">Data Analysis with Excel <strong>(INA)</strong></li>
+                                <li data-en="English to Communicate" data-es="Inglés para Comunicarse">English to Communicate</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <h3 class="mb-4">My Experience</h3>
+                    <h3 class="mb-4" data-en="My Experience" data-es="Mi Experiencia">My Experience</h3>
                     <div class="border-left border-primary pt-2 pl-4 ml-2">
                         <div class="position-relative mb-4">
                             <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">.NET Software Developer</h5>
-                            <p class="mb-2"><strong>COCOCO</strong></p>
+                            <h5 class="font-weight-bold mb-1" data-en="Systems Analyst & Fullstack Developer" data-es="Analista de Sistemas y Desarrollador Fullstack">Systems Analyst & Fullstack Developer</h5>
+                            <p class="mb-2"><strong>MCW Digital Agency</strong></p>
                             <ul>
-                                <li>Web MVC, ASP.NET Core, REST API, Entity Framework, LinQ, OOP. Systems: Support Management, eCommerce, Billing.</li>
-                                <li>Efficient SQL Server queries using LINQ; REST Web APIs with full HTTP operations.</li>
-                                <li>Dependency injection, authentication and authorization management.</li>
-                                <li>MVC and Repository patterns under N-layer architecture.</li>
-                                <li>Advanced data management: dynamic DataTables, DbContext, Migrations and triggers.</li>
-                                <li>Frontend integration: jQuery, Ajax, Axios, Chart.js for visualization and reporting.</li>
-                                <li>Modern UI development with Angular and React.js.</li>
+                                <li data-en="Project planning and coordination, including client meetings for requirements gathering and documentation." data-es="Planificación y coordinación de proyectos, incluyendo reuniones con clientes para el levantamiento y documentación de requerimientos.">Project planning and coordination, including client meetings for requirements gathering and documentation.</li>
+                                <li data-en="Developed fullstack web, mobile and desktop applications with .NET MAUI, PHP Laravel, Flutter and Python, including Android development." data-es="Desarrollo de aplicaciones fullstack web, móviles y de escritorio con .NET MAUI, PHP Laravel, Flutter y Python, incluyendo desarrollo Android.">Developed fullstack web, mobile and desktop applications with .NET MAUI, PHP Laravel, Flutter and Python, including Android development.</li>
+                                <li data-en="Integrated specialized external APIs: biometric recognition (AWS Rekognition, Google Cloud Vision), real-time geolocation and electronic billing with Hacienda CR." data-es="Integración de APIs externas especializadas: reconocimiento biométrico (AWS Rekognition, Google Cloud Vision), geolocalización en tiempo real y facturación electrónica con Hacienda CR.">Integrated specialized external APIs: biometric recognition (AWS Rekognition, Google Cloud Vision), real-time geolocation and electronic billing with Hacienda CR.</li>
+                                <li data-en="Developed virtual agents integrated into applications using OpenAI, Anthropic and Gemini." data-es="Desarrollo de agentes virtuales integrados en aplicaciones usando OpenAI, Anthropic y Gemini.">Developed virtual agents integrated into applications using OpenAI, Anthropic and Gemini.</li>
+                                <li data-en="Optimized performance and scalability of real-time monitoring applications." data-es="Optimización del rendimiento y escalabilidad de aplicaciones de monitoreo en tiempo real.">Optimized performance and scalability of real-time monitoring applications.</li>
+                                <li data-en="Automated data collection, validation and enrichment via Python scripts for operational and security event analysis." data-es="Automatización de recolección, validación y enriquecimiento de datos mediante scripts de Python para análisis de eventos operativos y de seguridad.">Automated data collection, validation and enrichment via Python scripts for operational and security event analysis.</li>
+                                <li data-en="Functional QA and test automation in PHP using YAML for test scenario configuration and TestCase for execution and validation." data-es="QA funcional y automatización de pruebas en PHP usando YAML para configuración de escenarios de prueba y TestCase para ejecución y validación.">Functional QA and test automation in PHP using YAML for test scenario configuration and TestCase for execution and validation.</li>
                             </ul>
                         </div>
                         <div class="position-relative mb-4">
                             <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Fullstack Developer</h5>
-                            <p class="mb-2"><strong>MCW Digital</strong></p>
+                            <h5 class="font-weight-bold mb-1" data-en=".NET Software Developer" data-es="Desarrollador de Software .NET">.NET Software Developer</h5>
+                            <p class="mb-2"><strong>COCOCO</strong></p>
                             <ul>
-                                <li>Multi-branch systems including management and electronic billing platforms.</li>
-                                <li>Web services development and implementation of internal APIs.</li>
-                                <li>Chart.js for statistical graphs and report generation.</li>
-                                <li>Massive data processing with queues, jobs and cache using Redis and Supervisor.</li>
-                                <li>Server administration and deployment of C#, PHP, Python apps on WHM.</li>
-                                <li>Client requirements gathering and support for Entry-level developers.</li>
-                                <li>AI and computer vision integration in Python Django with DeepFace, Google Cloud Vision API and Amazon Rekognition.</li>
-                                <li>Maintenance of ASP.NET CORE, .NET MAUI and React JS applications.</li>
+                                <li data-en="Web development using ASP.NET Core MVC, RESTful Web API, Entity Framework Core and LINQ." data-es="Desarrollo web usando ASP.NET Core MVC, RESTful Web API, Entity Framework Core y LINQ.">Web development using ASP.NET Core MVC, RESTful Web API, Entity Framework Core and LINQ.</li>
+                                <li data-en="Development and implementation of Support Management, eCommerce and Billing systems." data-es="Desarrollo e implementación de sistemas de Gestión de Soporte, eCommerce y Facturación.">Development and implementation of Support Management, eCommerce and Billing systems.</li>
+                                <li data-en="Optimized SQL Server queries via LINQ and data access procedures." data-es="Optimización de consultas SQL Server mediante LINQ y procedimientos de acceso a datos.">Optimized SQL Server queries via LINQ and data access procedures.</li>
+                                <li data-en="Creation of RESTful APIs based on functional requirements." data-es="Creación de APIs RESTful basadas en requerimientos funcionales.">Creation of RESTful APIs based on functional requirements.</li>
+                                <li data-en="Dependency Injection, Authentication and Authorization for secure, scalable applications." data-es="Inyección de dependencias, autenticación y autorización para aplicaciones seguras y escalables.">Dependency Injection, Authentication and Authorization for secure, scalable applications.</li>
+                                <li data-en="MVC and Repository design patterns under N-layer architecture." data-es="Patrones de diseño MVC y Repository bajo arquitectura de N capas.">MVC and Repository design patterns under N-layer architecture.</li>
+                                <li data-en="Data management with Entity Framework Core, DbContext, Migrations, Triggers and dynamic tables." data-es="Gestión de datos con Entity Framework Core, DbContext, Migraciones, Triggers y tablas dinámicas.">Data management with Entity Framework Core, DbContext, Migrations, Triggers and dynamic tables.</li>
+                                <li data-en="Interactive interfaces using jQuery, AJAX, Axios and Chart.js." data-es="Interfaces interactivas usando jQuery, AJAX, Axios y Chart.js.">Interactive interfaces using jQuery, AJAX, Axios and Chart.js.</li>
                             </ul>
                         </div>
                     </div>
@@ -193,8 +197,8 @@
     <div class="container-fluid py-5" id="skill">
         <div class="container">
             <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Skills</h1>
-                <h1 class="position-absolute text-uppercase text-primary">My Skills</h1>
+                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;" data-en="Skills" data-es="Habilidades">Skills</h1>
+                <h1 class="position-absolute text-uppercase text-primary" data-en="My Skills" data-es="Mis Habilidades">My Skills</h1>
             </div>
             <div class="row align-items-start">
                 <!-- Backend / Server-side -->
@@ -202,7 +206,7 @@
                     <div class="skill mb-4">
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-bold">C# ASP.NET CORE
-                                <img src="https://logos-world.net/wp-content/uploads/2022/01/NET-Framework-Logo-2010.png" width="60px" height="40px" alt="" srcset="">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg" width="60px" height="40px" alt="" srcset="">
                             </h6>
                             <h6 class="font-weight-bold">95%</h6>
                         </div>
@@ -213,7 +217,7 @@
                     <div class="skill mb-4">
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-bold">PHP Laravel
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg" width="30px" height="30px" alt="" srcset="">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" width="30px" height="30px" alt="" srcset="">
                             </h6>
                             <h6 class="font-weight-bold">85%</h6>
                         </div>
@@ -224,7 +228,7 @@
                     <div class="skill mb-4">
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-bold">SQL Server / MySQL
-                                <img src="https://img.icons8.com/?size=512&id=laYYF3dV0Iew&format=png" width="40px" height="40px" alt="" srcset="">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" width="40px" height="40px" alt="" srcset="">
                             </h6>
                             <h6 class="font-weight-bold">85%</h6>
                         </div>
@@ -235,7 +239,7 @@
                     <div class="skill mb-4">
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-bold">.NET Framework
-                                <img src="https://logos-world.net/wp-content/uploads/2022/01/NET-Framework-Symbol.png" width="60px" height="35px" alt="" srcset="">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dot-net/dot-net-original.svg" width="60px" height="35px" alt="" srcset="">
                             </h6>
                             <h6 class="font-weight-bold">80%</h6>
                         </div>
@@ -246,7 +250,7 @@
                     <div class="skill mb-4">
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-bold">Python Django
-                                <img src="https://goldeneagle.ai/static/images/technology/django.png" width="30px" height="30px" alt="" srcset="">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg" width="30px" height="30px" alt="" srcset="">
                             </h6>
                             <h6 class="font-weight-bold">70%</h6>
                         </div>
@@ -257,7 +261,7 @@
                     <div class="skill mb-4">
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-bold">PostgreSQL / Oracle
-                                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968342.png" width="30px" height="30px" alt="" srcset="">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" width="30px" height="30px" alt="" srcset="">
                             </h6>
                             <h6 class="font-weight-bold">75%</h6>
                         </div>
@@ -268,7 +272,7 @@
                     <div class="skill mb-4">
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-bold">Java
-                                <img src="https://cdn-icons-png.flaticon.com/512/226/226777.png" width="40px" height="40px" alt="" srcset="">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" width="40px" height="40px" alt="" srcset="">
                             </h6>
                             <h6 class="font-weight-bold">80%</h6>
                         </div>
@@ -282,7 +286,7 @@
                     <div class="skill mb-4">
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-bold">HTML | CSS | Bootstrap
-                                <img src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/172202717/original/5462529338d0af5cb9d049ba7f6c38dec1b419b6/develop-frontpage-using-html-css-bootstrap.png" width="50px" height="30px" alt="" srcset="">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" width="50px" height="30px" alt="" srcset="">
                             </h6>
                             <h6 class="font-weight-bold">95%</h6>
                         </div>
@@ -293,7 +297,7 @@
                     <div class="skill mb-4">
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-bold">JavaScript
-                                <img src="https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png" width="40px" height="40px" alt="" srcset="">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="40px" height="40px" alt="" srcset="">
                             </h6>
                             <h6 class="font-weight-bold">85%</h6>
                         </div>
@@ -304,7 +308,7 @@
                     <div class="skill mb-4">
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-bold">Tailwind CSS
-                                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png" width="30px" height="30px" alt="" srcset="">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" width="30px" height="30px" alt="" srcset="">
                             </h6>
                             <h6 class="font-weight-bold">80%</h6>
                         </div>
@@ -315,8 +319,8 @@
                     <div class="skill mb-4">
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-bold">React JS & Node
-                                <img src="https://mobylab.docs.crescdi.pub.ro/img/web-programming/react.png" width="40px" height="40px" alt="" srcset="">
-                                <img src="https://victorroblesweb.es/wp-content/uploads/2018/01/nodejs-victorroblesweb.png" width="40px" height="40px" alt="" srcset="">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" width="40px" height="40px" alt="" srcset="">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" width="40px" height="40px" alt="" srcset="">
                             </h6>
                             <h6 class="font-weight-bold">75%</h6>
                         </div>
@@ -327,7 +331,7 @@
                     <div class="skill mb-4">
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-bold">Angular
-                                <img src="https://cdn-icons-png.flaticon.com/512/226/226775.png" width="30px" height="30px" alt="" srcset="">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg" width="30px" height="30px" alt="" srcset="">
                             </h6>
                             <h6 class="font-weight-bold">75%</h6>
                         </div>
@@ -338,13 +342,28 @@
                     <div class="skill mb-4">
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-bold">Vue.js
-                                <img src="https://cdn-icons-png.flaticon.com/512/1183/1183669.png" width="30px" height="30px" alt="" srcset="">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" width="30px" height="30px" alt="" srcset="">
                             </h6>
                             <h6 class="font-weight-bold">75%</h6>
                         </div>
                         <div class="progress">
                             <div class="progress-bar" style="background-color: #42b883;" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
+                    </div>
+                </div>
+                <!-- Tools & Cloud -->
+                <div class="col-12 mt-3">
+                    <h6 class="font-weight-bold mb-3" data-en="Tools & Cloud" data-es="Herramientas y Nube">Tools & Cloud</h6>
+                    <div class="d-flex flex-wrap">
+                        <span class="badge badge-pill border border-primary text-primary m-1 px-3 py-2">Oracle APEX</span>
+                        <span class="badge badge-pill border border-primary text-primary m-1 px-3 py-2">Postman</span>
+                        <span class="badge badge-pill border border-primary text-primary m-1 px-3 py-2">Git</span>
+                        <span class="badge badge-pill border border-primary text-primary m-1 px-3 py-2">Telescope</span>
+                        <span class="badge badge-pill border border-primary text-primary m-1 px-3 py-2">Azure</span>
+                        <span class="badge badge-pill border border-primary text-primary m-1 px-3 py-2">Power BI</span>
+                        <span class="badge badge-pill border border-primary text-primary m-1 px-3 py-2">cPanel</span>
+                        <span class="badge badge-pill border border-primary text-primary m-1 px-3 py-2">WHM</span>
+                        <span class="badge badge-pill border border-primary text-primary m-1 px-3 py-2">OpenAI / Anthropic / Gemini</span>
                     </div>
                 </div>
             </div>
@@ -357,30 +376,30 @@
     <div class="container-fluid pt-5" id="service">
         <div class="container">
             <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Service</h1>
-                <h1 class="position-absolute text-uppercase text-primary">My Services</h1>
+                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;" data-en="Service" data-es="Servicios">Service</h1>
+                <h1 class="position-absolute text-uppercase text-primary" data-en="My Services" data-es="Mis Servicios">My Services</h1>
             </div>
             <div class="row pb-3">
                 <div class="col-lg-4 col-md-6 text-center mb-5">
                     <div class="d-flex align-items-center justify-content-center mb-4">
                         <i class="fa fa-2x fa-laptop service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">Web Design</h4>
+                        <h4 class="font-weight-bold m-0" data-en="Web Design" data-es="Diseño Web">Web Design</h4>
                     </div>
-                    <p>Attractive and functional visual experiences optimized for all devices, with a focus on usability and responsive design using Bootstrap 5 and Tailwind CSS.</p>
+                    <p data-en="Attractive and functional visual experiences optimized for all devices, with a focus on usability and responsive design using Bootstrap 5 and Tailwind CSS." data-es="Experiencias visuales atractivas y funcionales optimizadas para todos los dispositivos, con enfoque en usabilidad y diseño responsive usando Bootstrap 5 y Tailwind CSS.">Attractive and functional visual experiences optimized for all devices, with a focus on usability and responsive design using Bootstrap 5 and Tailwind CSS.</p>
                 </div>
                 <div class="col-lg-4 col-md-6 text-center mb-5">
                     <div class="d-flex align-items-center justify-content-center mb-4">
                         <i class="fa fa-2x fa-laptop-code service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">Web Development</h4>
+                        <h4 class="font-weight-bold m-0" data-en="Web Development" data-es="Desarrollo Web">Web Development</h4>
                     </div>
-                    <p>Custom Full Stack solutions with .NET, PHP Laravel, React, Angular and Vue.js — ensuring quality, scalability and performance through modern architectures and REST APIs.</p>
+                    <p data-en="Custom Full Stack solutions with .NET, PHP Laravel, React, Angular and Vue.js — ensuring quality, scalability and performance through modern architectures and REST APIs." data-es="Soluciones Full Stack a medida con .NET, PHP Laravel, React, Angular y Vue.js — garantizando calidad, escalabilidad y rendimiento mediante arquitecturas modernas y APIs REST.">Custom Full Stack solutions with .NET, PHP Laravel, React, Angular and Vue.js — ensuring quality, scalability and performance through modern architectures and REST APIs.</p>
                 </div>
                 <div class="col-lg-4 col-md-6 text-center mb-5">
                     <div class="d-flex align-items-center justify-content-center mb-4">
                         <i class="fab fa-2x fa-android service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">Apps Development</h4>
+                        <h4 class="font-weight-bold m-0" data-en="Apps Development" data-es="Desarrollo de Apps">Apps Development</h4>
                     </div>
-                    <p>Intuitive and high-performance mobile applications (.NET MAUI), focused on user experience and business objectives.</p>
+                    <p data-en="Intuitive and high-performance mobile applications (.NET MAUI), focused on user experience and business objectives." data-es="Aplicaciones móviles intuitivas y de alto rendimiento (.NET MAUI), enfocadas en la experiencia de usuario y los objetivos del negocio.">Intuitive and high-performance mobile applications (.NET MAUI), focused on user experience and business objectives.</p>
                 </div>
             </div>
         </div>
@@ -392,38 +411,98 @@
     <div class="container-fluid pt-5 pb-3" id="portfolio">
         <div class="container">
             <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Gallery</h1>
-                <h1 class="position-absolute text-uppercase text-primary">My Portfolio</h1>
+                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;" data-en="Gallery" data-es="Galería">Gallery</h1>
+                <h1 class="position-absolute text-uppercase text-primary" data-en="My Portfolio" data-es="Mi Portafolio">My Portfolio</h1>
             </div>
             <div class="row">
                 <div class="col-12 text-center mb-2">
                     <ul class="list-inline mb-4" id="portfolio-flters">
-                        <li class="btn btn-sm btn-outline-primary m-1 active"  data-filter="*">All</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".first">Design</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".second">Development</li>
+                        <li class="btn btn-sm btn-outline-primary m-1 active"  data-filter="*" data-en="All" data-es="Todos">All</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".first" data-en="Design" data-es="Diseño">Design</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".second" data-en="Development" data-es="Desarrollo">Development</li>
                     </ul>
                 </div>
             </div>
             <div class="row portfolio-container">
                 <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
                     <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/Laravel1/F.png" alt="">
+                        <img class="img-fluid rounded w-100" src="img/portfolio/movelius-laravel/F.png" alt="">
                         <span style="position:absolute; top:10px; left:10px; background:#28a745; color:#fff; font-size:12px; font-weight:bold; padding:3px 10px; border-radius:20px; z-index:1;">NEW</span>
                         <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/Laravel1/F.png" data-lightbox="portfolio">
+                            <a href="img/portfolio/movelius-laravel/F.png" data-lightbox="movelius-laravel">
                                 <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
                             </a>
-                            <a href="img/Laravel1/F2.png" data-lightbox="portfolio"></a>
-                            <a href="img/Laravel1/F3.png" data-lightbox="portfolio"></a>
-                            <a href="img/Laravel1/F4.png" data-lightbox="portfolio"></a>
-                            <a href="img/Laravel1/F5.png" data-lightbox="portfolio"></a>
-                            <a href="img/Laravel1/F6.png" data-lightbox="portfolio"></a>
-                            <a href="img/Laravel1/F7.png" data-lightbox="portfolio"></a>
-                            <a href="img/Laravel1/F8.png" data-lightbox="portfolio"></a>
+                            <a href="img/portfolio/movelius-laravel/F2.png" data-lightbox="movelius-laravel"></a>
+                            <a href="img/portfolio/movelius-laravel/F3.png" data-lightbox="movelius-laravel"></a>
+                            <a href="img/portfolio/movelius-laravel/F4.png" data-lightbox="movelius-laravel"></a>
+                            <a href="img/portfolio/movelius-laravel/F5.png" data-lightbox="movelius-laravel"></a>
+                            <a href="img/portfolio/movelius-laravel/F6.png" data-lightbox="movelius-laravel"></a>
+                            <a href="img/portfolio/movelius-laravel/F7.png" data-lightbox="movelius-laravel"></a>
+                            <a href="img/portfolio/movelius-laravel/F8.png" data-lightbox="movelius-laravel"></a>
                         </div>
                     </div>
-                    <a class="btn btn-sm btn-outline-primary m-1" type="button" data-bs-toggle="modal" data-bs-target="#Movelius"><strong>PHP</strong> Laravel, Vue.js, SQL <br><strong style="color:darkcyan;">See more</strong></a>
-                    <a class="btn btn-sm btn-outline-primary m-1 active" href="https://github.com/PabloEspinoza1999/Movelius" target="_blank">Go to GitHub</a>
+                    <a class="btn btn-sm btn-outline-primary m-1" type="button" data-bs-toggle="modal" data-bs-target="#Movelius"><strong>PHP</strong> Laravel, Vue.js, SQL <br><strong style="color:darkcyan;" data-en="See more" data-es="Ver más">See more</strong></a>
+                    <a class="btn btn-sm btn-outline-primary m-1 active" href="https://github.com/PabloEspinoza1999/Movelius" target="_blank" data-en="Go to GitHub" data-es="Ir a GitHub">Go to GitHub</a>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid rounded w-100" src="img/portfolio/booking-laravel/p1.png" alt="">
+                        <span style="position:absolute; top:10px; left:10px; background:#28a745; color:#fff; font-size:12px; font-weight:bold; padding:3px 10px; border-radius:20px; z-index:1;">NEW</span>
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                            <a href="img/portfolio/booking-laravel/p1.png" data-lightbox="booking-laravel">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                            <a href="img/portfolio/booking-laravel/p2.png" data-lightbox="booking-laravel"></a>
+                            <a href="img/portfolio/booking-laravel/p3.png" data-lightbox="booking-laravel"></a>
+                            <a href="img/portfolio/booking-laravel/p4.png" data-lightbox="booking-laravel"></a>
+                            <a href="img/portfolio/booking-laravel/p5.png" data-lightbox="booking-laravel"></a>
+                            <a href="img/portfolio/booking-laravel/p6.png" data-lightbox="booking-laravel"></a>
+                            <a href="img/portfolio/booking-laravel/p7.png" data-lightbox="booking-laravel"></a>
+                            <a href="img/portfolio/booking-laravel/p8.png" data-lightbox="booking-laravel"></a>
+                            <a href="img/portfolio/booking-laravel/p9.png" data-lightbox="booking-laravel"></a>
+                            <a href="img/portfolio/booking-laravel/p10.png" data-lightbox="booking-laravel"></a>
+                        </div>
+                    </div>
+                    <a class="btn btn-sm btn-outline-primary m-1" type="button" data-bs-toggle="modal" data-bs-target="#BookingLaravel"><strong>PHP</strong> Laravel, Vue.js <br><strong style="color:darkcyan;" data-en="See more" data-es="Ver más">See more</strong></a>
+                    <a class="btn btn-sm btn-outline-primary m-1 active" href="mailto:espinozapablo1999@gmail.com?subject=Solicitud%20de%20acceso%20-%20Booking%20System" data-en="Request" data-es="Solicitar">Solicitar</a>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid rounded w-100" src="img/portfolio/Angent-python/p1.png" alt="">
+                        <span style="position:absolute; top:10px; left:10px; background:#28a745; color:#fff; font-size:12px; font-weight:bold; padding:3px 10px; border-radius:20px; z-index:1;">NEW</span>
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                            <a href="img/portfolio/Angent-python/p1.png" data-lightbox="Angent-python">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                            <a href="img/portfolio/Angent-python/p2.png" data-lightbox="Angent-python"></a>
+                            <a href="img/portfolio/Angent-python/p3.png" data-lightbox="Angent-python"></a>
+                            <a href="img/portfolio/Angent-python/p4.png" data-lightbox="Angent-python"></a>
+                            <a href="img/portfolio/Angent-python/p5.png" data-lightbox="Angent-python"></a>
+                            <a href="img/portfolio/Angent-python/p6.png" data-lightbox="Angent-python"></a>
+                        </div>
+                    </div>
+                    <a class="btn btn-sm btn-outline-primary m-1" type="button" data-bs-toggle="modal" data-bs-target="#AgentPython"><strong>Python</strong> FastAPI, React, LLM <br><strong style="color:darkcyan;" data-en="See more" data-es="Ver más">See more</strong></a>
+                    <a class="btn btn-sm btn-outline-primary m-1 active" href="mailto:espinozapablo1999@gmail.com?subject=Solicitud%20de%20acceso%20-%20AI%20Sales%20Assistant" data-en="Request" data-es="Solicitar">Solicitar</a>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid rounded w-100" src="img/portfolio/auloras/p1.png" alt="">
+                        <span style="position:absolute; top:10px; left:10px; background:#28a745; color:#fff; font-size:12px; font-weight:bold; padding:3px 10px; border-radius:20px; z-index:1;">NEW</span>
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                            <a href="img/portfolio/auloras/p1.png" data-lightbox="auloras">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                            <a href="img/portfolio/auloras/p2.png" data-lightbox="auloras"></a>
+                            <a href="img/portfolio/auloras/p3.png" data-lightbox="auloras"></a>
+                            <a href="img/portfolio/auloras/p4.png" data-lightbox="auloras"></a>
+                            <a href="img/portfolio/auloras/p5.png" data-lightbox="auloras"></a>
+                            <a href="img/portfolio/auloras/p6.png" data-lightbox="auloras"></a>
+                            <a href="img/portfolio/auloras/p7.png" data-lightbox="auloras"></a>
+                            <a href="img/portfolio/auloras/p8.png" data-lightbox="auloras"></a>
+                        </div>
+                    </div>
+                    <a class="btn btn-sm btn-outline-primary m-1" type="button" data-bs-toggle="modal" data-bs-target="#Auloras"><strong>PHP</strong> Laravel, Vue.js, Inertia <br><strong style="color:darkcyan;" data-en="See more" data-es="Ver más">See more</strong></a>
+                    <a class="btn btn-sm btn-outline-primary m-1 active" href="mailto:espinozapablo1999@gmail.com?subject=Solicitud%20de%20acceso%20-%20Auloras" data-en="Request" data-es="Solicitar">Solicitar</a>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
                     <div class="position-relative overflow-hidden mb-2" style="min-height:200px;">
@@ -433,132 +512,130 @@
                         </div>
                         <span style="position:absolute; top:10px; left:10px; background:#ff9800; color:#fff; font-size:12px; font-weight:bold; padding:3px 10px; border-radius:20px; z-index:1;">IN DEVELOPMENT</span>
                     </div>
-                    <a class="btn btn-sm btn-outline-primary m-1" type="button" data-bs-toggle="modal" data-bs-target="#HotelReservation"><strong>C#</strong> ASP.NET Core, SQL Server <br><strong style="color:darkcyan;">See more</strong></a>
+                    <a class="btn btn-sm btn-outline-primary m-1" type="button" data-bs-toggle="modal" data-bs-target="#HotelReservation"><strong>C#</strong> ASP.NET Core, SQL Server <br><strong style="color:darkcyan;" data-en="See more" data-es="Ver más">See more</strong></a>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
                     <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/Front1/Init.png" alt="">
+                        <img class="img-fluid rounded w-100" src="img/portfolio/pharmacy-frontend/Init.png" alt="">
                         <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/Front1/F7.png" data-lightbox="portfolio">
+                            <a href="img/portfolio/pharmacy-frontend/F7.png" data-lightbox="pharmacy-frontend">
                                 <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
                             </a>
-                            <a href="img/Front1/F.png" data-lightbox="portfolio"></a>
-
-                            <a href="img/Front1/F1.png" data-lightbox="portfolio"></a>
-
-                            <a href="img/Front1/F5.png" data-lightbox="portfolio"></a>
-                            <a href="img/Front1/F6.png" data-lightbox="portfolio"></a>
-
-                            <a href="img/Front1/F2.png" data-lightbox="portfolio"></a>
-                            </a>
-                            <a href="img/Front1/F3.png" data-lightbox="portfolio"></a>
-                            <a href="img/Front1/F4.png" data-lightbox="portfolio"></a>
-                        </a>
+                            <a href="img/portfolio/pharmacy-frontend/F.png" data-lightbox="pharmacy-frontend"></a>
+                            <a href="img/portfolio/pharmacy-frontend/F1.png" data-lightbox="pharmacy-frontend"></a>
+                            <a href="img/portfolio/pharmacy-frontend/F5.png" data-lightbox="pharmacy-frontend"></a>
+                            <a href="img/portfolio/pharmacy-frontend/F6.png" data-lightbox="pharmacy-frontend"></a>
+                            <a href="img/portfolio/pharmacy-frontend/F2.png" data-lightbox="pharmacy-frontend"></a>
+                            <a href="img/portfolio/pharmacy-frontend/F3.png" data-lightbox="pharmacy-frontend"></a>
+                            <a href="img/portfolio/pharmacy-frontend/F4.png" data-lightbox="pharmacy-frontend"></a>
                         </div>
                     </div>
-                    <a class="btn btn-sm btn-outline-primary m-1" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >
-                     <strong>HTML5</strong>, Boostraps 5, CSS , JavaScript. <br> <strong style="color:darkcyan;">See more</strong></a>
+                    <a class="btn btn-sm btn-outline-primary m-1" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                     <strong>HTML5</strong>, Boostraps 5, CSS , JavaScript. <br> <strong style="color:darkcyan;" data-en="See more" data-es="Ver más">See more</strong></a>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
                     <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/php/Init.png" alt="">
+                        <img class="img-fluid rounded w-100" src="img/portfolio/store-php/Init.png" alt="">
                         <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/php/F1.png" data-lightbox="portfolio">
+                            <a href="img/portfolio/store-php/F1.png" data-lightbox="store-php">
                                 <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
                             </a>
-                            <a href="img/php/F2.png" data-lightbox="portfolio">
+                            <a href="img/portfolio/store-php/F2.png" data-lightbox="store-php">
                             </a>
-                            <a href="img/php/F3.png" data-lightbox="portfolio">
+                            <a href="img/portfolio/store-php/F3.png" data-lightbox="store-php">
                             </a>
                         </div>
                     </div>
-                   <a class="btn btn-sm btn-outline-primary m-1" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ProductInventory" > <strong>PHP</strong>, Ajax JavaScript, MySql <br> <strong style="color: darkcyan;">See more</strong></a>
-                   <a class="btn btn-sm btn-outline-primary m-1 active"href="https://github.com/PabloEspinoza1999/STORE_ADMINISTRATION"  >Go to GitHub</a>
+                   <a class="btn btn-sm btn-outline-primary m-1" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ProductInventory" > <strong>PHP</strong>, Ajax JavaScript, MySql <br> <strong style="color: darkcyan;" data-en="See more" data-es="Ver más">See more</strong></a>
+                   <a class="btn btn-sm btn-outline-primary m-1 active"href="https://github.com/PabloEspinoza1999/STORE_ADMINISTRATION"   data-en="Go to GitHub" data-es="Ir a GitHub">Go to GitHub</a>
                 </div>
+                <!-- DISABLED: Student management project
                 <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
                     <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/NET3/init.png" alt="">
+                        <img class="img-fluid rounded w-100" src="img/portfolio/student-net/init.png" alt="">
                         <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/NET3/init.png" data-lightbox="portfolio">
+                            <a href="img/portfolio/student-net/init.png" data-lightbox="student-net">
                                 <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
                             </a>
-                            <a href="img/NET3/F1.png" data-lightbox="portfolio">
+                            <a href="img/portfolio/student-net/F1.png" data-lightbox="student-net">
                             </a>
-                            <a href="img/NET3/F2.png" data-lightbox="portfolio">
+                            <a href="img/portfolio/student-net/F2.png" data-lightbox="student-net">
                             </a>
                         </div>
                     </div>
-                    <a class="btn btn-sm btn-outline-primary m-1" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Student"> <strong>C#</strong>, ASP.NET CORE, NOSQL Cassandra <br> <strong style="color: darkcyan;">See more</strong> </a>
-                    <a class="btn btn-sm btn-outline-primary m-1 active"href="https://github.com/PabloEspinoza1999/CRUD_STUDENT_APP" >Go to GitHub</a>
+                    <a class="btn btn-sm btn-outline-primary m-1" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Student"> <strong>C#</strong>, ASP.NET CORE, NOSQL Cassandra <br> <strong style="color: darkcyan;" data-en="See more" data-es="Ver más">See more</strong> </a>
+                    <a class="btn btn-sm btn-outline-primary m-1 active"href="https://github.com/PabloEspinoza1999/CRUD_STUDENT_APP"  data-en="Go to GitHub" data-es="Ir a GitHub">Go to GitHub</a>
                 </div>
+                -->
+                <!-- DISABLED: Electronic billing project
                 <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
                     <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/NET2/F1.png" alt="">
+                        <img class="img-fluid rounded w-100" src="img/portfolio/billing-net/F1.png" alt="">
                         <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
 
-                            <a href="img/NET2/F2.png" data-lightbox="portfolio">
+                            <a href="img/portfolio/billing-net/F2.png" data-lightbox="billing-net">
                                 <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
                             </a>
-                            <a href="img/NET2/F4.png" data-lightbox="portfolio">
+                            <a href="img/portfolio/billing-net/F4.png" data-lightbox="billing-net">
                             </a>
-                            <a href="img/NET2/F3.png" data-lightbox="portfolio">
+                            <a href="img/portfolio/billing-net/F3.png" data-lightbox="billing-net">
                             </a>
-                            <a href="img/NET2/F1.png" data-lightbox="portfolio">
+                            <a href="img/portfolio/billing-net/F1.png" data-lightbox="billing-net">
                             </a>
                         </div>
                     </div>
-                    <a class="btn btn-sm btn-outline-primary m-1" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ElectronicBilling"> <strong>C#</strong>, ASP.NET CORE, JavaScript, SQL Server <br> <strong style="color: darkcyan;">See more</strong></a>
-                    <a class="btn btn-sm btn-outline-primary m-1 active" href="https://github.com/PabloEspinoza1999/APP_HACIENDA" >Go to Git</a>
+                    <a class="btn btn-sm btn-outline-primary m-1" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ElectronicBilling"> <strong>C#</strong>, ASP.NET CORE, JavaScript, SQL Server <br> <strong style="color: darkcyan;" data-en="See more" data-es="Ver más">See more</strong></a>
+                    <a class="btn btn-sm btn-outline-primary m-1 active" href="https://github.com/PabloEspinoza1999/APP_HACIENDA"  data-en="Go to Git" data-es="Ir a Git">Go to Git</a>
                 </div>
-
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/NET/F1.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-
-                            <a href="img/NET/F1.png" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
-                            <a href="img/NET/F2.png" data-lightbox="portfolio">
-                            </a>
-                            <a href="img/NET/F3.png" data-lightbox="portfolio">
-                            </a>
-                        </div>
-                    </div>
-                    <a class="btn btn-sm btn-outline-primary m-1" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Inventory"> <strong>C#</strong>, ASP.NET CORE,JavaScript, SQL Server <br> <strong style="color: darkcyan;">See more</strong></a>
-                    <a class="btn btn-sm btn-outline-primary m-1 active"href="https://github.com/PabloEspinoza1999/INV_APP_SALES" >Go to Git</a>
-                </div>
-
-                 <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/frontend_react.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-
-                            <a href="img/frontend_react.png" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <a class="btn btn-sm btn-outline-primary m-1" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#FrontendReact"> <strong>PHP</strong>, PHP Laravel, React JS <br> <strong style="color: darkcyan;">See more</strong></a>
-                    <a class="btn btn-sm btn-outline-primary m-1 active"href="https://github.com/PabloEspinoza1999/MASTER_WEB" >Go to Git</a>
-                </div>
+                -->
 
                 <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
                     <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/PythonGalery/init.png" alt="">
+                        <img class="img-fluid rounded w-100" src="img/portfolio/inventory-net/F1.png" alt="">
                         <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/PythonGalery/F.png" data-lightbox="portfolio">
+
+                            <a href="img/portfolio/inventory-net/F1.png" data-lightbox="inventory-net">
                                 <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
                             </a>
-                            <a href="img/PythonGalery/F2.png" data-lightbox="portfolio"></a>
+                            <a href="img/portfolio/inventory-net/F2.png" data-lightbox="inventory-net">
                             </a>
-
-                           <a href="img/PythonGalery/F5.png" data-lightbox="portfolio"></a>
-                        </a>
+                            <a href="img/portfolio/inventory-net/F3.png" data-lightbox="inventory-net">
+                            </a>
                         </div>
                     </div>
-                    <a  class="btn btn-sm btn-outline-primary m-1" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#DataAnalysis"> <strong>Python</strong>Django, JavaScript  <br><strong style="color: darkcyan;">See more</strong></a>
-                    <a class="btn btn-sm btn-outline-primary m-1 active" href="https://github.com/PabloEspinoza1999/APP_NUMERICAL_METHODS">Go to Git</a>
+                    <a class="btn btn-sm btn-outline-primary m-1" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Inventory"> <strong>C#</strong>, ASP.NET CORE,JavaScript, SQL Server <br> <strong style="color: darkcyan;" data-en="See more" data-es="Ver más">See more</strong></a>
+                    <a class="btn btn-sm btn-outline-primary m-1 active"href="https://github.com/PabloEspinoza1999/INV_APP_SALES"  data-en="Go to Git" data-es="Ir a Git">Go to Git</a>
+                </div>
+
+                <!-- DISABLED: Frontend React / Product Management project
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid rounded w-100" src="img/portfolio/frontend-react/frontend_react.png" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+
+                            <a href="img/portfolio/frontend-react/frontend_react.png" data-lightbox="frontend-react">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <a class="btn btn-sm btn-outline-primary m-1" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#FrontendReact"> <strong>PHP</strong>, PHP Laravel, React JS <br> <strong style="color: darkcyan;" data-en="See more" data-es="Ver más">See more</strong></a>
+                    <a class="btn btn-sm btn-outline-primary m-1 active"href="https://github.com/PabloEspinoza1999/MASTER_WEB"  data-en="Go to Git" data-es="Ir a Git">Go to Git</a>
+                </div>
+                -->
+
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid rounded w-100" src="img/portfolio/data-analysis-python/init.png" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                            <a href="img/portfolio/data-analysis-python/F.png" data-lightbox="data-analysis-python">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                            <a href="img/portfolio/data-analysis-python/F2.png" data-lightbox="data-analysis-python"></a>
+                            <a href="img/portfolio/data-analysis-python/F5.png" data-lightbox="data-analysis-python"></a>
+                        </div>
+                    </div>
+                    <a class="btn btn-sm btn-outline-primary m-1" type="button" data-bs-toggle="modal" data-bs-target="#DataAnalysis"> <strong>Python</strong> Django, JavaScript <br><strong style="color: darkcyan;" data-en="See more" data-es="Ver más">See more</strong></a>
+                    <a class="btn btn-sm btn-outline-primary m-1 active" href="https://github.com/PabloEspinoza1999/APP_NUMERICAL_METHODS" data-en="Go to Git" data-es="Ir a Git">Go to Git</a>
                 </div>
             </div>
         </div>
@@ -647,6 +724,86 @@
         </div>
         <div class="modal-body">
             It is an inventory management system developed in C# .NET, with connection to SQL Server. It uses the MVC and Repository design patterns to ensure a modular architecture, facilitating efficient inventory management and interaction with the database.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="BookingLaravel" tabindex="-1" aria-labelledby="BookingLaravelLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="BookingLaravelLabel">Booking System — Appointment & Reservation Management</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <strong>PHP Laravel &amp; Vue.js</strong><br>
+          Full-stack appointment booking and management platform for service businesses (salons, barbershops). Features include:
+          <ul class="mt-2">
+            <li>Admin dashboard with booking statistics and Chart.js visualizations.</li>
+            <li>Reservation management with status tracking (pending, confirmed, completed, cancelled).</li>
+            <li>Client management with type segmentation (new, recurring, VIP).</li>
+            <li>Professional/staff and service catalog administration.</li>
+            <li>Category management and advanced filtering/search.</li>
+            <li>Reactive UI built with Vue.js and Bootstrap.</li>
+            <li>RESTful API with Laravel and Eloquent ORM.</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="Auloras" tabindex="-1" aria-labelledby="AulorasLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="AulorasLabel">Auloras — School Management SaaS Platform</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <strong>PHP Laravel 12, Vue 3 &amp; Inertia.js</strong><br>
+          Multi-tenant school management SaaS for Costa Rican institutions, aligned with MEP regulations (enrollment decree 40529-MEP and conduct/discipline decree 45509-MEP). Covers the full academic cycle across 4 role-based portals:
+          <ul class="mt-2">
+            <li>Super Admin, Administrator, Teacher and Guardian (parent/tutor) portals with role-based permissions.</li>
+            <li>Multi-step enrollment wizard with document uploads and emergency contacts.</li>
+            <li>Weighted grading components, per-session attendance and conduct/discipline tracking with annual scoring.</li>
+            <li>Reports with charts and export to Excel/PDF, plus student promotion between school years.</li>
+            <li>Multi-tenancy via team_id (Laravel Jetstream + global TenantScope) and roles/permissions with spatie/laravel-permission.</li>
+            <li>Monolithic architecture: Laravel + Inertia.js renders Vue 3 pages directly, no separate REST API, styled with Tailwind CSS.</li>
+            <li>Chart.js (vue-chartjs) for dashboards, DomPDF for documents, Laravel Excel for exports, MySQL database.</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="AgentPython" tabindex="-1" aria-labelledby="AgentPythonLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="AgentPythonLabel">AI Sales Assistant — Context-Aware Chatbot</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <strong>Python FastAPI &amp; React</strong><br>
+          AI-powered chatbot that answers questions based on a context PDF (e.g. sales/support rules for an assistant), with an admin panel to manage the whole deployment. Features include:
+          <ul class="mt-2">
+            <li>User authentication (JWT) with admin/user roles.</li>
+            <li>Chat interface with persisted conversation history.</li>
+            <li>Admin panel: user management, LLM configuration (switchable between Anthropic Claude, OpenAI and Google Gemini), context PDF upload, usage metrics, feedback and evaluation reports.</li>
+            <li>Backend built with FastAPI, SQLite, JWT + bcrypt for auth, and encrypted storage for provider API keys.</li>
+            <li>Real-time streaming responses via Server-Sent Events (SSE).</li>
+            <li>Frontend built with React 18, Vite, React Router, react-markdown and Chart.js for the metrics dashboard.</li>
+          </ul>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
@@ -748,8 +905,8 @@
     <div class="container-fluid py-5" id="contact">
         <div class="container">
             <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white d-none d-md-block" style="-webkit-text-stroke: 1px #dee2e6;">Contact</h1>
-                <h1 class="position-absolute text-uppercase text-primary">Contact Me</h1>
+                <h1 class="display-1 text-uppercase text-white d-none d-md-block" style="-webkit-text-stroke: 1px #dee2e6;" data-en="Contact" data-es="Contacto">Contact</h1>
+                <h1 class="position-absolute text-uppercase text-primary" data-en="Contact Me" data-es="Contáctame">Contact Me</h1>
                 <br>
                 <br>
             </div>
@@ -787,13 +944,13 @@
         <div class="container text-center py-5">
 
             <div class="d-flex justify-content-center mb-3">
-                <a class="text-white" href="#">Privacy</a>
+                <a class="text-white" href="#" data-en="Privacy" data-es="Privacidad">Privacy</a>
                 <span class="px-3">|</span>
-                <a class="text-white" href="#">Terms</a>
+                <a class="text-white" href="#" data-en="Terms" data-es="Términos">Terms</a>
                 <span class="px-3">|</span>
-                <a class="text-white" href="#">FAQs</a>
+                <a class="text-white" href="#" data-en="FAQs" data-es="Preguntas Frecuentes">FAQs</a>
                 <span class="px-3">|</span>
-                <a class="text-white" href="#">Help</a>
+                <a class="text-white" href="#" data-en="Help" data-es="Ayuda">Help</a>
             </div>
             
         </div>
@@ -808,8 +965,7 @@
 
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="lib/typed/typed.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
@@ -817,12 +973,64 @@
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
 
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
-
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- Language Toggle -->
+    <script>
+        function setLang(lang) {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-en][data-es]').forEach(function (el) {
+                el.innerHTML = lang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+            });
+
+            var langToggleBtn = document.getElementById('langToggle');
+            if (langToggleBtn) {
+                langToggleBtn.title = lang === 'es' ? 'Switch to English' : 'Cambiar a Español';
+            }
+            var langBadge = document.getElementById('langBadge');
+            if (langBadge) {
+                langBadge.textContent = lang === 'es' ? 'ES' : 'EN';
+            }
+
+            var typedTextEl = document.querySelector('.typed-text');
+            if (typedTextEl && window.Typed && window.jQuery && jQuery('.typed-text-output').length === 1) {
+                if (window.typedInstance) {
+                    window.typedInstance.destroy();
+                }
+                var strings = typedTextEl.textContent.split(', ');
+                window.typedInstance = new Typed('.typed-text-output', {
+                    strings: strings,
+                    typeSpeed: 100,
+                    backSpeed: 20,
+                    smartBackspace: false,
+                    loop: true
+                });
+            }
+
+            localStorage.setItem('siteLang', lang);
+        }
+
+        function toggleDarkMode() {
+            var isDark = document.body.classList.toggle('dark-mode');
+            var icon = document.querySelector('#darkModeToggle i');
+            if (icon) {
+                icon.classList.toggle('fa-moon', !isDark);
+                icon.classList.toggle('fa-sun', isDark);
+            }
+            localStorage.setItem('darkMode', isDark ? '1' : '0');
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var savedLang = localStorage.getItem('siteLang');
+            if (savedLang === 'es') {
+                setLang('es');
+            }
+            if (localStorage.getItem('darkMode') === '1') {
+                toggleDarkMode();
+            }
+        });
+    </script>
 </body>
 
 </html>

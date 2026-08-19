@@ -1,0 +1,278 @@
+/* Custom overrides on top of Bootstrap 5 (loaded via CDN in index.html) */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+:root {
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #0BCEAF;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #ffffff;
+  --dark: #343a40;
+
+  --bs-primary: #0BCEAF;
+  --bs-primary-rgb: 11, 206, 175;
+}
+
+.text-primary {
+  color: var(--bs-primary, var(--primary)) !important;
+}
+
+.bg-primary {
+  background-color: var(--bs-primary, var(--primary)) !important;
+}
+
+.border-primary {
+  border-color: var(--bs-primary, var(--primary)) !important;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--bs-primary);
+  --bs-btn-border-color: var(--bs-primary);
+  --bs-btn-hover-bg: #0ab89d;
+  --bs-btn-hover-border-color: #0ab89d;
+  --bs-btn-active-bg: #09a68e;
+  --bs-btn-active-border-color: #09a68e;
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--bs-primary);
+  --bs-btn-border-color: var(--bs-primary);
+  --bs-btn-hover-bg: var(--bs-primary);
+  --bs-btn-hover-border-color: var(--bs-primary);
+  --bs-btn-active-bg: var(--bs-primary);
+  --bs-btn-active-border-color: var(--bs-primary);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Header / hero */
+#home {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  min-height: 80vh;
+  padding-top: clamp(6rem, 8vw, 9rem) !important;
+}
+
+/* Dark overlay so text stays readable over the header image */
+#home::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+/* Keep content above the overlay */
+#home .container {
+  position: relative;
+  z-index: 2;
+}
+
+.text-white {
+  color: white;
+}
+
+#home .display-3 {
+  font-size: clamp(1.8rem, 8vw, 6rem);
+  -webkit-text-stroke: 1.5px #ffffff;
+  word-break: break-word;
+}
+
+#home .typed-text-output {
+  font-size: clamp(1.2rem, 5vw, 2.5rem);
+}
+
+#home img.rounded-circle {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: top center;
+}
+
+@media (max-width: 575.98px) {
+  #home {
+    min-height: auto;
+    padding-bottom: 2rem;
+  }
+  #home img.rounded-circle {
+    width: 180px;
+    max-width: 180px;
+    height: 180px;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+#email {
+  word-break: break-all;
+}
+
+/* Navbar */
+.navbar-nav .nav-link {
+  white-space: nowrap;
+}
+
+/* Section heading pairs (e.g. faded background title + colored title on top) */
+.display-1 {
+  font-size: clamp(1.8rem, 12vw, 6rem);
+}
+
+.position-relative.d-flex.align-items-center.justify-content-center {
+  overflow: hidden;
+  padding: 0 0.5rem;
+}
+
+.position-relative.d-flex.align-items-center.justify-content-center .position-absolute {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(1rem, 5vw, 2.5rem);
+  width: 100%;
+  max-width: 100%;
+  padding: 0 0.5rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Skills */
+.progress {
+  border-radius: 10px;
+}
+
+.progress .progress-bar {
+  width: 0px;
+  border-radius: 10px;
+  transition: 2s;
+}
+
+.skill h6.font-weight-bold {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.badge.badge-pill {
+  white-space: normal;
+}
+
+/* Services */
+.service-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 60px;
+}
+
+/* Portfolio */
+.portfolio-item .portfolio-btn {
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 50%;
+  left: 50%;
+  border-radius: 4px;
+  opacity: 0;
+  transition: .5s;
+}
+
+.portfolio-item:hover .portfolio-btn {
+  opacity: 1;
+  width: calc(100% - 60px);
+  height: calc(100% - 60px);
+  top: 30px;
+  left: 30px;
+}
+
+/* Dark mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode .navbar,
+body.dark-mode .modal-content {
+  background-color: #1e1e1e !important;
+}
+
+body.dark-mode .navbar-brand h1,
+body.dark-mode .navbar-light .navbar-nav .nav-link,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode small {
+  color: #e0e0e0;
+}
+
+body.dark-mode .text-secondary {
+  color: #a0a0a0 !important;
+}
+
+body.dark-mode .container-fluid:not(#home):not(.bg-primary) {
+  background-color: #121212;
+}
+
+body.dark-mode .bg-light {
+  background-color: #1e1e1e !important;
+}
+
+body.dark-mode .btn-outline-primary {
+  color: #2dd4bf;
+  border-color: #2dd4bf;
+}
+
+body.dark-mode .btn-outline-primary:hover,
+body.dark-mode .btn-outline-primary.active {
+  color: #121212;
+  background-color: #2dd4bf;
+  border-color: #2dd4bf;
+}
+
+body.dark-mode .progress {
+  background-color: #2a2a2a;
+}
+
+body.dark-mode .badge.border-primary {
+  color: #2dd4bf !important;
+  border-color: #2dd4bf !important;
+}
+
+body.dark-mode .footer,
+body.dark-mode .container-fluid.bg-primary {
+  background-color: #0d9488 !important;
+}
